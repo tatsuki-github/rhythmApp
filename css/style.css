@@ -1,0 +1,209 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  list-style: none;
+}
+
+p {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+select {
+  color: #000;
+  font-weight: bold;
+}
+
+.item {
+  display: flex;
+  margin: -0.4rem 1.8rem 1rem 1.8rem;
+}
+
+.part {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin: 0 2.2rem 0 1.2rem;
+}
+
+.beat {
+  display: block;
+}
+
+.beat p {
+  margin: 0;
+}
+
+.name {
+  margin: 1.4rem 0 0 0;
+}
+
+.name p {
+  width: 4rem;
+  margin: 0.4rem -0.8rem 0.6rem 0;
+}
+
+.part select {
+  width: 2.8rem;
+  height: 2rem;
+  margin: 0;
+}
+
+.sound {
+  background-color: #ffff00;
+}
+
+.rhythm_img {
+  display: flex;
+  margin: 0.5rem 1rem 0 1rem;
+  justify-content: space-around;
+  font-size: 20px;
+}
+
+.rhythm_img img {
+  width: 6rem;
+  height: auto;
+}
+
+#tan,
+#tata,
+#un,
+#tau,
+#uta {
+  border: 0.4rem solid lightblue;
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+}
+
+#ta__n,
+#ta_nta,
+#tata_n {
+  border: 0.4rem solid lightpink;
+}
+
+.rhythm_img p {
+  margin: 0;
+}
+
+.tempo_and_piano {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 0.2rem 0 0 0;
+}
+
+#tempo_category {
+  display: flex;
+  width: 8rem;
+  height: 2.8rem;
+  margin: 1.6rem 0 0 1rem;
+  background-color: #eee8aa;
+}
+
+.buttons {
+  display: flex;
+  margin: 1.6rem 0 0 0;
+  justify-content: space-around;
+}
+
+button {
+  width: 5rem;
+  height: 2.5rem;
+  border-radius: 16px;
+  border: none;
+  color: black;
+  font-weight: bold;
+  font-size: 12px;
+  margin: 0.2rem 0.4rem 0 0;
+}
+
+#play_mode {
+  width: 6rem;
+  height: 2.8rem;
+  margin: 0.2rem 0.5rem 0 0;
+  background-color: #eedab9;
+}
+
+#play {
+  background-color: #ff7e00;
+  display: inline-block;
+  position: relative;
+  color: #000;
+  font-size: 2rem;
+}
+
+#play::before {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border: 0.3em solid transparent;
+  border-left: 0.5em solid currentColor;
+  box-sizing: border-box;
+  content: "";
+}
+
+#stop {
+  background-color: #ffa500;
+  display: inline-block;
+  position: relative;
+  color: #000;
+  font-size: 2rem;
+}
+
+#stop::before,
+#stop::after {
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 0.25rem;
+  height: 1rem;
+  box-sizing: border-box;
+  background-color: currentColor;
+  content: "";
+}
+
+#stop::before {
+  left: 45%;
+}
+
+#stop::after {
+  left: 55%;
+}
+
+.piano {
+  display: flex;
+  width: 27rem;
+  height: 5.5rem;
+  margin: 1rem 2rem;
+  border: 0.5rem solid #ffff00;
+  border-radius: 0.8rem;
+}
+
+.white {
+  position: relative;
+  width: 56%;
+  background-color: white;
+  border: 1px solid gray;
+}
+
+.white p {
+  position: absolute;
+  bottom: 0;
+  left: 24%;
+}
+
+.black {
+  width: 16%;
+  height: 40%;
+  background-color: black;
+  margin: 0 -2%;
+  z-index: 2;
+}
