@@ -1340,7 +1340,7 @@ function changeTempo(){
 }
 
 function playMelody() {
-  const synth = new Tone.Synth().toDestination();
+  const synth = new Tone.MetalSynth().toDestination();
   changeTempo();
   preparePlay();
   const item = {
