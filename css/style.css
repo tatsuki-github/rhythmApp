@@ -8,8 +8,16 @@ body {
   list-style: none;
 }
 
-.abcjs-staff {
-  stroke: green;
+svg {
+  fill: red;
+}
+
+.abcjs-staff path {
+  stroke: white;
+}
+
+.abcjs-staff-extra.abcjs-clef {
+  display: none;
 }
 
 p {
@@ -59,46 +67,6 @@ select {
 
 .sound {
   background-color: #ffff00;
-}
-
-.rhythm_img {
-  display: flex;
-  margin: 0.5rem 1rem 0 1rem;
-  justify-content: space-around;
-  font-size: 20px;
-}
-
-.rhythm_img img {
-  width: 6rem;
-  height: auto;
-}
-
-#tan,
-#tata,
-#un,
-#tau,
-#uta {
-  border: 0.4rem solid lightblue;
-  width: 50%;
-  height: 50%;
-  object-fit: cover;
-}
-
-#ta__n,
-#ta_nta,
-#tata_n {
-  border: 0.4rem solid lightpink;
-}
-
-.rhythm_img p {
-  margin: 0;
-}
-
-.tempo_and_piano {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin: 0.2rem 0 0 0;
 }
 
 #tempo_category {
@@ -180,34 +148,4 @@ button {
 
 #stop::after {
   left: 55%;
-}
-
-.piano {
-  display: flex;
-  width: 27rem;
-  height: 5.5rem;
-  margin: 1rem 2rem;
-  border: 0.5rem solid #ffff00;
-  border-radius: 0.8rem;
-}
-
-.white {
-  position: relative;
-  width: 56%;
-  background-color: white;
-  border: 1px solid gray;
-}
-
-.white p {
-  position: absolute;
-  bottom: 0;
-  left: 24%;
-}
-
-.black {
-  width: 16%;
-  height: 40%;
-  background-color: black;
-  margin: 0 -2%;
-  z-index: 2;
 }
