@@ -947,8 +947,9 @@ function displayNote(){
   }
 
   changeRythm();
-  ABCJS.renderAbc("note","M:4/4\nL:1/4\n " + `"C"` + `${notes[0]}` + notes[1] + notes[2] + notes[3] + "|" + `"Am"` + `${notes[4]}` + notes[5] + notes[6] + notes[7] + "|" + `"F"` + `${notes[8]}` + notes[9] + notes[10] + notes[11] + "|" + `"G"` + `${notes[12]}`  + notes[13] + notes[14] + notes[15] + "|",{add_classes: true,responsive: "resize",paddingtop:"0",paddingbottom:"-16"});
-  ABCJS.renderAbc("note2","\nL:1/4\nK:C\n " + `"C"` + `${notes[16]}` + notes[17] + notes[18] + notes[19] + "|" + `"Am"` + `${notes[20]}` + notes[21] + notes[22] + notes[23] + "|" + `"Dm"` + `${notes[24]}` + notes[25] + `"G7"` + `${notes[26]}`  + notes[27] + "|" + `"C"` + `${notes[28]}` + notes[29] + notes[30] + notes[31] + "||",{add_classes: true,responsive: "resize",paddingtop:"0",paddingbottom:"-16"});
+  ABCJS.renderAbc("note","L:1/4\n " + `${notes[0]}` + notes[1] + notes[2] + notes[3] + "|" + `${notes[4]}` + notes[5] + notes[6] + notes[7] + "|" + `${notes[8]}` + notes[9] + notes[10] + notes[11] + "|" + `${notes[12]}`  + notes[13] + notes[14] + notes[15] + "|" + `${notes[16]}` + notes[17] + notes[18] + notes[19] + "|" + `${notes[20]}` + notes[21] + notes[22] + notes[23] ,{add_classes: true,responsive: "resize",paddingtop:"0",paddingbottom:"-16"});
+  ABCJS.renderAbc("note2","L:1/4\n " + `${notes[0]}` + notes[1] + notes[2] + notes[3] + "|" + `${notes[4]}` + notes[5] + notes[6] + notes[7] + "|" + `${notes[8]}` + notes[9] + notes[10] + notes[11] + "|" + `${notes[12]}`  + notes[13] + notes[14] + notes[15] + "|" + `${notes[16]}` + notes[17] + notes[18] + notes[19] + "|" + `${notes[20]}` + notes[21] + notes[22] + notes[23] ,{add_classes: true,responsive: "resize",paddingtop:"0",paddingbottom:"-16"});
+  
 
 }    
 
@@ -1148,7 +1149,20 @@ function changeTempo(){
 }
 
 function playMelody() {
-  const synth = new Tone.MetalSynth().toDestination();
+  const synth = new Tone.MembraneSynth().toDestination();
+  /*
+  AMSynth
+  DuoSynth
+  FMSynth
+  MembraneSynth
+  MetalSynth
+  MonoSynth
+  NoiseSynth
+  PluckSynth
+  PolySynth
+  Sampler
+  Synth
+  */
   changeTempo();
   preparePlay();
   const item = {
