@@ -8,6 +8,10 @@ body {
   list-style: none;
 }
 
+.abcjs-staff {
+  stroke: green;
+}
+
 p {
   font-weight: bold;
   font-size: 12px;
