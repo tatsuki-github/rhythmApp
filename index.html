@@ -15,11 +15,6 @@
       );
 </script>
 
-<!--jQuery-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<script src="js/abcjs-basic-min.js"></script>
-
 </head>
 
 <body>
@@ -27,23 +22,17 @@
 <div class="tempo_and_piano">
   <select name="tempo_category" id="tempo_category">
     <option value="select" selected>テンポ</option>
-    <option value="tempo_60">&#9833; = 60</option>
-    <option value="tempo_80">&#9833; = 80</option>
-    <option value="tempo_100">&#9833; = 100</option>
-    <option value="tempo_120">&#9833; = 120</option>
-    <option value="tempo_140">&#9833; = 140</option>
-    <option value="tempo_160">&#9833; = 160</option>
+    <option value="tempo75">&#9833; = 75</option>
+    <option value="tempo95">&#9833; = 95</option>
+    <option value="tempo115">&#9833; = 115</option>
   </select>
   
 
   <div class="buttons">
     <select name="play_mode" id="play_mode">
       <option value="select" selected>再生モード</option>
-      <option value="only_code">コードのみ</option>
-      <option value="only_melody">旋律のみ</option>
-      <option value="play_first_half">前半再生</option>
-      <option value="play_latter_half">後半再生</option>
-      <option value="play">全曲再生</option>
+      <option value="1personMode">一人モード</option>
+      <option value="allPlay">全員モード</option>
     </select>
     
     <button id = "play"></button>
@@ -691,70 +680,8 @@
     displayNote();
   }, false)
 
-function btnDisable(){ 
-document.getElementById("play").disabled = true;
-document.getElementById("play").style.backgroundColor = "#C0C0C0"
-clearInterval(statusDis);
-}
-function btnAble(){  
-document.getElementById("play").disabled = false;
-document.getElementById("play").style.backgroundColor = "#ff7e00"
-clearInterval(statusAble);
-}
-
-function clicked(){ 
-statusDis  = setInterval(btnDisable , 0); 
-if(play_mode.value == "play_first_half" || play_mode.value == "play_latter_half"){
-  switch (tempo_category.value){
-    case "tempo_60":
-    statusAble = setInterval(btnAble , 17000); 
-        break;
-    case "tempo_80":
-    statusAble = setInterval(btnAble , 13000); 
-        break;
-    case "tempo_100":
-    statusAble = setInterval(btnAble , 10500); 
-        break;
-    case "tempo_120":
-    statusAble = setInterval(btnAble , 9000); 
-        break;    
-    case "tempo_140":
-    statusAble = setInterval(btnAble , 8000); 
-        break;    
-    case "tempo_160":
-    statusAble = setInterval(btnAble , 7000); 
-        break;    
-    default:  
-  }  
-}
-else{
-  switch (tempo_category.value){
-    case "tempo_60":
-    statusAble = setInterval(btnAble , 33000); 
-        break;
-    case "tempo_80":
-    statusAble = setInterval(btnAble , 25000); 
-        break;
-    case "tempo_100":
-    statusAble = setInterval(btnAble , 17000); 
-        break;
-    case "tempo_120":
-    statusAble = setInterval(btnAble , 16500); 
-        break;    
-    case "tempo_140":
-    statusAble = setInterval(btnAble , 14500); 
-        break;    
-    case "tempo_160":
-    statusAble = setInterval(btnAble , 12500); 
-        break;           
-    default:  
-  }  
-}
-}
-
 document.getElementById("play").addEventListener("click", function() {
     playMode();
-    clicked();
 }, false);
 
 document.getElementById("stop").addEventListener("click", function() {
@@ -762,103 +689,71 @@ document.getElementById("stop").addEventListener("click", function() {
 }, false);
 
 
-
-
-
-
-    
-
     const tempo_category = document.getElementById("tempo_category");
     tempo_category.onchange = Refresh;
 
     const play_mode = document.getElementById("play_mode");
     play_mode.onchange = Refresh;
-    const first = document.getElementById("first");
-    const latter = document.getElementById("latter");
-    
 
-    play_mode.onchange = displayNote;
-
-
-    
 function Refresh(){
   Tone.Transport.stop();
   Tone.Transport.cancel();
-  btnAble();
 }
 
-   
 function preparePlay(){
   if(tempo_category.value == "select"){
-    tempo_category.value = "tempo_100";    
-    }
-  if(play_mode.value == "select"){
-    play_mode.value = "play";    
-    }
-  
-  
+  tempo_category.value = "tempo95";    
 }
+}
+
 
 const notes = new Array(32); 
 
-
-
 function displayNote(){
-
   ABCJS.renderAbc("note","L:1/4\n E2 t E2 t| E4 | z E z E|z E z E|E E/E/2 E z|E E/E/2 E z|" ,{add_classes: true,responsive: "resize",paddingtop:"0",paddingbottom:"-16"});
   ABCJS.renderAbc("note2","L:1/4\n E/E/2 E/E/2 E/E/2 E/E/2 | E/E/2 E/E/2 E/E/2 E/E/2 | E3/2 E/2 E z | E3/2 E/2 E z| E3/2 E/2 E E | z E E z",{add_classes: true,responsive: "resize",paddingtop:"0",paddingbottom:"-16"});
-  
- 
 }    
 
-  
 function playMode(){
+  changeTempo();
+  preparePlay();
   switch (play_mode.value){
-    case "only_code":
+    case "1personMode":
+      playRhythm1();
+      playRhythm2();
         break;
-    case "only_melody":
-      playMelody();
+    case "allPlay":
+      playRhythm1();
+      playRhythm2();
         break;
-    case "play_first_half":
-      playMelodyFirstHalf();
-        break;
-    case "play_latter_half":
-      playMelodyLatterHalf();
-        break;    
-    case "play":
-      playMelody();
-        break;    
     default:  
-      playMelody();
+      playRhythm1();
+      playRhythm2();
+      playRhythm3();
+      playRhythm4();
+      playRhythm5();
+      playRhythm6(); 
   }    
 }
 
 function changeTempo(){
     switch (tempo_category.value){
-    case "tempo_60":
-    Tone.Transport.bpm.value = 60;
+    case "tempo75":
+    Tone.Transport.bpm.value = 75;
         break;
-    case "tempo_80":
-    Tone.Transport.bpm.value = 80;
+    case "tempo95":
+    Tone.Transport.bpm.value = 95;
         break;
-    case "tempo_100":
-    Tone.Transport.bpm.value = 100;
+    case "tempo115":
+    Tone.Transport.bpm.value = 115;
         break;
-    case "tempo_120":
-    Tone.Transport.bpm.value = 120;     
-        break;    
-    case "tempo_140":
-    Tone.Transport.bpm.value = 140;     
-        break;    
-    case "tempo_160":
-    Tone.Transport.bpm.value = 160;     
-        break;      
     default:  
   }  
 }
 
-function playMelody() {
-  const synth = new Tone.MembraneSynth().toDestination();
+function playRhythm1(){
+  const synth = new Tone.Synth().toDestination();
+
   /*
   AMSynth
   DuoSynth
@@ -866,208 +761,125 @@ function playMelody() {
   MembraneSynth
   MetalSynth
   MonoSynth
-  NoiseSynth
-  PluckSynth
-  PolySynth
   Sampler
   Synth
   */
-  changeTempo();
-  preparePlay();
-  const item = {
-  0:{note: "E4", duration: "4n"},
-  1:{note: "E4", duration: "4n"},
-  2:{note: "E4", duration: "4n"},
-  3:{note: "E4", duration: "4n"},
-  4:{note: "E4", duration: "4n"},
-  5:{note: "E4", duration: "4n"},
-  6:{note: "E4", duration: "4n"},
-  7:{note: "E4", duration: "4n"},
-  8:{note: "E4", duration: "4n"},
-  9:{note: "E4", duration: "4n"},
-  10:{note: "E4", duration: "4n"},
-  11:{note: "E4", duration: "4n"},
-  12:{note: "E4", duration: "4n"},
-  13:{note: "E4", duration: "4n"},
-  14:{note: "E4", duration: "4n"},
-  15:{note: "E4", duration: "4n"},
-  16:{note: "E4", duration: "4n"},
-  17:{note: "E4", duration: "4n"},
-  18:{note: "E4", duration: "4n"},
-  19:{note: "E4", duration: "4n"},
-  20:{note: "E4", duration: "4n"},
-  21:{note: "E4", duration: "4n"},
-  22:{note: "E4", duration: "4n"},
-  23:{note: "E4", duration: "4n"},
-  24:{note: "E4", duration: "4n"},
-  25:{note: "E4", duration: "4n"},
-  26:{note: "E4", duration: "4n"},
-  27:{note: "E4", duration: "4n"},
-  28:{note: "E4", duration: "4n"},
-  29:{note: "E4", duration: "4n"},
-  30:{note: "E4", duration: "4n"},
-  31:{note: "E4", duration: "4n"},
-  32:null,
-  33:null,
-  34:null,
-  35:null,
-  36:null,
-  37:null,
-  38:null,
-  39:null,
-  40:null,
-  41:null,
-  42:null,
-  43:null,
-  44:null,
-  45:null,
-  46:null,
-  47:null,
-  48:null,
-  49:null,
-  50:null,
-  51:null,
-  52:null,
-  53:null,
-  54:null,
-  55:null,
-  56:null,
-  57:null,
-  58:null,
-  59:null,
-  60:null,
-  61:null,
-  62:null,
-  63:null,
-};
 
+  const melodyList = [
+  {time: "0:0", duration: "2n"},
+  {time: "0:2", duration: "2n"},
+  {time: "1:0", duration: "1m"}
+  ]
 
-const melodyList = [
-  item["0"],item["32"],item["1"],item["33"],item["2"],item["34"],item["3"],item["35"],
-  item["4"],item["36"],item["5"],item["37"],item["6"],item["38"],item["7"],item["39"],
-  item["8"],item["40"],item["9"],item["41"],item["10"],item["42"],item["11"],item["43"],
-  item["12"],item["44"],item["13"],item["45"],item["14"],item["46"],item["15"],item["47"],
-  item["16"],item["48"],item["17"],item["49"],item["18"],item["50"],item["19"],item["51"],
-  item["20"],item["52"],item["21"],item["53"],item["22"],item["54"],item["23"],item["55"],
-  item["24"],item["56"],item["25"],item["57"],item["26"],item["58"],item["27"],item["59"],
-  item["28"],item["60"],item["29"],item["61"],item["30"],item["62"],item["31"],item["63"]
-];
-
-function setPlay(time, note) {synth.triggerAttackRelease(note.note, note.duration, time);}
-    const melody = new Tone.Sequence(setPlay, melodyList).start();
+  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+    const melody = new Tone.Part(setPlay, melodyList).start();
     melody.loop = 0;  
     Tone.Transport.start();
 }
 
-function playMelodyFirstHalf(){
+function playRhythm2(){
   const synth = new Tone.Synth().toDestination();
-  changeTempo();
-  preparePlay();
-  const item = {
-  0:{note: "E4", duration: "4n"},
-  1:{note: "E4", duration: "4n"},
-  2:{note: "E4", duration: "4n"},
-  3:{note: "E4", duration: "4n"},
-  4:{note: "E4", duration: "4n"},
-  5:{note: "E4", duration: "4n"},
-  6:{note: "E4", duration: "4n"},
-  7:{note: "E4", duration: "4n"},
-  8:{note: "E4", duration: "4n"},
-  9:{note: "E4", duration: "4n"},
-  10:{note: "E4", duration: "4n"},
-  11:{note: "E4", duration: "4n"},
-  12:{note: "E4", duration: "4n"},
-  13:{note: "E4", duration: "4n"},
-  14:{note: "E4", duration: "4n"},
-  15:{note: "E4", duration: "4n"},
-  15:{note: "E4", duration: "4n"},
-  16:null,
-  17:null,
-  18:null,
-  19:null,
-  20:null,
-  21:null,
-  22:null,
-  23:null,
-  24:null,
-  25:null,
-  26:null,
-  27:null,
-  28:null,
-  29:null,
-  30:null,
-  31:null
-};
-
-
 
 const melodyList = [
-  item["0"],item["16"],item["1"],item["17"],item["2"],item["18"],item["3"],item["19"],
-  item["4"],item["20"],item["5"],item["21"],item["6"],item["22"],item["7"],item["23"],
-  item["8"],item["24"],item["9"],item["25"],item["10"],item["26"],item["11"],item["27"],
-  item["12"],item["28"],item["13"],item["29"],item["14"],item["30"],item["15"],item["31"]
-];
+  {time: "0:1"},
+  {time: "0:3"},
+  {time: "1:1"},
+  {time: "1:3"},
+]
 
-function setPlay(time, note) {synth.triggerAttackRelease(note.note, note.duration, time);}
-    const melody = new Tone.Sequence(setPlay, melodyList).start();
-    melody.loop = 0;  
-    Tone.Transport.start();
+function setPlay(time, note) {synth.triggerAttackRelease("E4", "4n", time);}
+  const melody = new Tone.Part(setPlay, melodyList).start("2m");
+  melody.loop = 0;  
+  Tone.Transport.start();
 }
 
-function playMelodyLatterHalf() {
+function playRhythm3(){
   const synth = new Tone.Synth().toDestination();
-  changeTempo();
-  preparePlay();
-  const item = {
-  16:{note: "E4", duration: "4n"},
-  17:{note: "E4", duration: "4n"},
-  18:{note: "E4", duration: "4n"},
-  19:{note: "E4", duration: "4n"},
-  20:{note: "E4", duration: "4n"},
-  21:{note: "E4", duration: "4n"},
-  22:{note: "E4", duration: "4n"},
-  23:{note: "E4", duration: "4n"},
-  24:{note: "E4", duration: "4n"},
-  25:{note: "E4", duration: "4n"},
-  26:{note: "E4", duration: "4n"},
-  27:{note: "E4", duration: "4n"},
-  28:{note: "E4", duration: "4n"},
-  29:{note: "E4", duration: "4n"},
-  30:{note: "E4", duration: "4n"},
-  31:{note: "E4", duration: "4n"},
-  32:null,
-  33:null,
-  34:null,
-  35:null,
-  36:null,
-  37:null,
-  38:null,
-  39:null,
-  40:null,
-  41:null,
-  42:null,
-  43:null,
-  44:null,
-  45:null,
-  46:null,
-  47:null
-};
-
-
 
 const melodyList = [
-  item["16"],item["32"],item["17"],item["33"],item["18"],item["34"],item["19"],item["35"],
-  item["20"],item["36"],item["21"],item["37"],item["22"],item["38"],item["23"],item["39"],
-  item["24"],item["40"],item["25"],item["41"],item["26"],item["42"],item["27"],item["43"],
-  item["28"],item["44"],item["29"],item["45"],item["30"],item["46"],item["31"],item["47"]
-];
+  {time: "0:0", duration: "4n"},
+  {time: "0:1", duration: "8n"},
+  {time: "0:1.5", duration: "8n"},
+  {time: "0:2", duration: "4n"},
+  {time: "1:0", duration: "4n"},
+  {time: "1:1", duration: "8n"},
+  {time: "1:1.5", duration: "8n"},
+  {time: "1:2", duration: "4n"}
+]
 
-function setPlay(time, note) {synth.triggerAttackRelease(note.note, note.duration, time);}
-    const melody = new Tone.Sequence(setPlay, melodyList).start();
-    melody.loop = 0;  
-    Tone.Transport.start();
+function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+  const melody = new Tone.Part(setPlay, melodyList).start("4m");
+  melody.loop = 0;  
+  Tone.Transport.start();
 }
+
+function playRhythm4(){
+  const synth = new Tone.Synth().toDestination();
+
+const melodyList = [
+  {time: "0:0"},
+  {time: "0:0.5"},
+  {time: "0:1"},
+  {time: "0:1.5"},
+  {time: "0:2"},
+  {time: "0:2.5"},
+  {time: "0:3"},
+  {time: "0:3.5"},
+  {time: "1:0"},
+  {time: "1:0.5"},
+  {time: "1:1"},
+  {time: "1:1.5"},
+  {time: "1:2"},
+  {time: "1:2.5"},
+  {time: "1:3"},
+  {time: "1:3.5"},
+]
+
+function setPlay(time, note) {synth.triggerAttackRelease("E4","8n", time);}
+  const melody = new Tone.Part(setPlay, melodyList).start("6m");
+  melody.loop = 0;  
+  Tone.Transport.start();
+}
+
+function playRhythm5(){
+  const synth = new Tone.Synth().toDestination();
+
+const melodyList = [
+  {time: "0:0", duration: "3n"},
+  {time: "0:1.5", duration: "8n"},
+  {time: "0:2", duration: "4n"},
+  {time: "1:0", duration: "3n"},
+  {time: "1:1.5", duration: "8n"},
+  {time: "1:2", duration: "4n"},
+]
+
+function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+  const melody = new Tone.Part(setPlay, melodyList).start("8m");
+  melody.loop = 0;  
+  Tone.Transport.start();
+}
+
+function playRhythm6(){
+  const synth = new Tone.Synth().toDestination();
+
+const melodyList = [
+  {time: "0:0", duration: "3n"},
+  {time: "0:1.5", duration: "8n"},
+  {time: "0:2", duration: "4n"},
+  {time: "0:3", duration: "4n"},
+  {time: "1:1", duration: "4n"},
+  {time: "1:2", duration: "4n"},
+]
+
+function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+  const melody = new Tone.Part(setPlay, melodyList).start("10m");
+  melody.loop = 0;  
+  Tone.Transport.start();
+}
+
 </script>
 <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/abcjs-basic-min.js"></script>
 </body>
 </html>
