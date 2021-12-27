@@ -8,10 +8,6 @@ body {
   list-style: none;
 }
 
-svg {
-  fill: red;
-}
-
 .abcjs-staff path {
   stroke: white;
 }
@@ -51,19 +47,6 @@ select {
 
 .beat p {
   margin: 0;
-}
-
-.name {
-  margin: 1.4rem 0 0 0;
-}
-
-.name p {
-  width: 4rem;
-  margin: 0.4rem -0.8rem 0.6rem 0;
-}
-
-.sound {
-  background-color: #ffff00;
 }
 
 #tempo_category {
