@@ -671,10 +671,6 @@
   </div>
 </div>
 
-
-    
-
-
 <script>
   window.addEventListener("load", function(){
     displayNote();
@@ -725,7 +721,7 @@ function displayNote(){
 function playMode(){
   changeTempo();
   preparePlay();
-  playRhythm1();
+  playRhythm();
 }
 
 function changeTempo(){
@@ -743,16 +739,7 @@ function changeTempo(){
   }  
 }
 
-  /*
-  AMSynth
-  DuoSynth
-  FMSynth
-  MembraneSynth
-  MetalSynth
-  MonoSynth
-  Sampler
-  Synth
-  */
+
 
   
   const rhythmList1 = [
@@ -815,27 +802,13 @@ function changeTempo(){
   {time: "1:1", duration: "4n"},
   {time: "1:2", duration: "4n"},
   ]
-/*
-let playFlg1 = true;
-let playFlg2 = true;
-let playFlg3 = true;
-let playFlg4 = true;
-let playFlg5 = true;
-let playFlg6 = true;
 
-function allFlgFalse(){
-  playFlg1 = false;
-  playFlg2 = false;
-  playFlg3 = false;
-  playFlg4 = false;
-  playFlg5 = false;
-  playFlg6 = false;
-}
-*/
+
 function changeRhythm(){
   for(i = 0; i < rhythmCategory.length; i++){
     switch (rhythmCategory[i].value){
     case "rhythm0":
+    melodyList[i] = [];
         break;
     case "rhythm1":
       melodyList[i] = rhythmList1;
@@ -852,19 +825,30 @@ function changeRhythm(){
     case "rhythm5":
       melodyList[i] = rhythmList5;
         break;
+    case "rhythm6":
+      melodyList[i] = rhythmList6;
+        break;
     default:  
   }  
   }
 }
 
+const melodyList = new Array(44); 
 
-
+  /*
+  AMSynth
+  DuoSynth
+  FMSynth
+  MembraneSynth
+  MetalSynth
+  MonoSynth
+  Sampler
+  Synth
+  */
 
 function melody1(){
-  changeRhythm();
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melodyList = new Array(11); 
   const melody1 = new Tone.Part(setPlay, melodyList[0]).start();
   const melody2 = new Tone.Part(setPlay, melodyList[1]).start("2m");
   const melody3 = new Tone.Part(setPlay, melodyList[2]).start("4m");
@@ -879,128 +863,83 @@ function melody1(){
 
   Tone.loop = 0;
 
-  /*
-  const melody1 = new Tone.Part(setPlay, rhythmList1).start();
-  const melody2 = new Tone.Part(setPlay, rhythmList2).start();
-  const melody3 = new Tone.Part(setPlay, rhythmList3).start();
-  const melody4 = new Tone.Part(setPlay, rhythmList4).start();
-  const melody5 = new Tone.Part(setPlay, rhythmList5).start();
-  const melody6 = new Tone.Part(setPlay, rhythmList6).start();
-  
-
-  melody2.loop = 0; 
-  melody3.loop = 0; 
-  melody4.loop = 0; 
-  melody5.loop = 0; 
-  melody6.loop = 0; 
-  */
 }
 
 function melody2(){
-  const synth = new Tone.Synth().toDestination();
+  const synth = new Tone.MetalSynth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody = new Tone.Part(setPlay, melodyList).start("2m");
-  melody.loop = 0; 
+  const melody1 = new Tone.Part(setPlay, melodyList[11]).start();
+  const melody2 = new Tone.Part(setPlay, melodyList[12]).start("2m");
+  const melody3 = new Tone.Part(setPlay, melodyList[13]).start("4m");
+  const melody4 = new Tone.Part(setPlay, melodyList[14]).start("6m");
+  const melody5 = new Tone.Part(setPlay, melodyList[15]).start("8m");
+  const melody6 = new Tone.Part(setPlay, melodyList[16]).start("10m");
+  const melody7 = new Tone.Part(setPlay, melodyList[17]).start("12m");
+  const melody8 = new Tone.Part(setPlay, melodyList[18]).start("14m");
+  const melody9 = new Tone.Part(setPlay, melodyList[19]).start("16m");
+  const melody10 = new Tone.Part(setPlay, melodyList[20]).start("18m");
+  const melody11 = new Tone.Part(setPlay, melodyList[21]).start("20m");
+
+  Tone.loop = 0;
+
 }
 
-function playRhythm1(){
-    melody1();
-    //melody2();
 
+function melody3(){
+  const synth = new Tone.Sampler({
+	urls: {
+		A1: "A1.mp3",
+		A2: "A2.mp3",
+	},
+	baseUrl: "https://tonejs.github.io/audio/casio/",
+}).toDestination();
+  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+  const melody1 = new Tone.Part(setPlay, melodyList[22]).start();
+  const melody2 = new Tone.Part(setPlay, melodyList[23]).start("2m");
+  const melody3 = new Tone.Part(setPlay, melodyList[24]).start("4m");
+  const melody4 = new Tone.Part(setPlay, melodyList[25]).start("6m");
+  const melody5 = new Tone.Part(setPlay, melodyList[26]).start("8m");
+  const melody6 = new Tone.Part(setPlay, melodyList[27]).start("10m");
+  const melody7 = new Tone.Part(setPlay, melodyList[28]).start("12m");
+  const melody8 = new Tone.Part(setPlay, melodyList[29]).start("14m");
+  const melody9 = new Tone.Part(setPlay, melodyList[30]).start("16m");
+  const melody10 = new Tone.Part(setPlay, melodyList[31]).start("18m");
+  const melody11 = new Tone.Part(setPlay, melodyList[32]).start("20m");
+
+  Tone.loop = 0;
+
+}
+
+function melody4(){
+  const synth = new Tone.MembraneSynth().toDestination();
+  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+  const melody1 = new Tone.Part(setPlay, melodyList[33]).start();
+  const melody2 = new Tone.Part(setPlay, melodyList[34]).start("2m");
+  const melody3 = new Tone.Part(setPlay, melodyList[35]).start("4m");
+  const melody4 = new Tone.Part(setPlay, melodyList[36]).start("6m");
+  const melody5 = new Tone.Part(setPlay, melodyList[37]).start("8m");
+  const melody6 = new Tone.Part(setPlay, melodyList[38]).start("10m");
+  const melody7 = new Tone.Part(setPlay, melodyList[39]).start("12m");
+  const melody8 = new Tone.Part(setPlay, melodyList[40]).start("14m");
+  const melody9 = new Tone.Part(setPlay, melodyList[41]).start("16m");
+  const melody10 = new Tone.Part(setPlay, melodyList[42]).start("18m");
+  const melody11 = new Tone.Part(setPlay, melodyList[43]).start("20m");
+
+  Tone.loop = 0;
+
+}
+
+
+function playRhythm(){
+    changeRhythm();
+    melody1();
+    melody2();
+    melody3();
+    melody4();
     Tone.Transport.start();
 }
 
-/*
-function melody1(){
-  changeRythm();
-  const synth = new Tone.Synth().toDestination();
-  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody1 = new Tone.Part(setPlay, melodyList).start();
-  melody1.loop = 0; 
-}
-function melody1(){
-  changeRythm();
-  const synth = new Tone.Synth().toDestination();
-  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody1 = new Tone.Part(setPlay, melodyList).start();
-  melody1.loop = 0; 
-}
-function melody1(){
-  changeRythm();
-  const synth = new Tone.Synth().toDestination();
-  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody1 = new Tone.Part(setPlay, melodyList).start();
-  melody1.loop = 0; 
-}
-function melody1(){
-  changeRythm();
-  const synth = new Tone.Synth().toDestination();
-  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody1 = new Tone.Part(setPlay, melodyList).start();
-  melody1.loop = 0; 
-}
-function melody1(){
-  changeRythm();
-  const synth = new Tone.Synth().toDestination();
-  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody1 = new Tone.Part(setPlay, melodyList).start();
-  melody1.loop = 0; 
-}
-function melody1(){
-  changeRythm();
-  const synth = new Tone.Synth().toDestination();
-  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody1 = new Tone.Part(setPlay, melodyList).start();
-  melody1.loop = 0; 
-}
-function melody1(){
-  changeRythm();
-  const synth = new Tone.Synth().toDestination();
-  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody1 = new Tone.Part(setPlay, melodyList).start();
-  melody1.loop = 0; 
-}
-function melody1(){
-  changeRythm();
-  const synth = new Tone.Synth().toDestination();
-  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody1 = new Tone.Part(setPlay, melodyList).start();
-  melody1.loop = 0; 
-}
-function melody1(){
-  changeRythm();
-  const synth = new Tone.Synth().toDestination();
-  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody1 = new Tone.Part(setPlay, melodyList).start();
-  melody1.loop = 0; 
-}
-*/
 
-/*
-function playRhythm2(){
-  const synth = new Tone.Synth().toDestination();
-function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody = new Tone.Part(setPlay, melodyList).start(startTime);
-  melody.loop = 0;  
-  Tone.Transport.start();
-}
-
-function playRhythm3(){
-  const synth = new Tone.Synth().toDestination();
-function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody = new Tone.Part(setPlay, melodyList).start(startTime);
-  melody.loop = 0;  
-  Tone.Transport.start();
-}
-
-function playRhythm4(){
-  const synth = new Tone.Synth().toDestination();
-function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody = new Tone.Part(setPlay, melodyList).start(startTime);
-  melody.loop = 0;  
-  Tone.Transport.start();
-}
-*/
 </script>
 <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
