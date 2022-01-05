@@ -40,13 +40,35 @@
   </div>
 </div>
 
+<div class="rhythmImg">
+  <div>
+    <img src="img/rhythm1.png" alt="">
+    <p>①</p>
+  </div>
+  <div>
+    <img src="img/rhythm2.png" alt="">
+    <p>②</p>
+  </div>
+  <div>
+    <img src="img/rhythm3.png" alt="">
+    <p>③</p>
+  </div>
+  <div>
+    <img src="img/rhythm4.png" alt="">
+    <p>④</p>
+  </div>
+  <div>
+    <img src="img/rhythm5.png" alt="">
+    <p>⑤</p>
+  </div>
+  <div>
+    <img src="img/rhythm6.png" alt="">
+    <p>⑥</p>
+  </div>
+</div>
+
 <div id="first">
-  <div id="note"></div>
-  <div id="note2"></div>
-
-
   <div class="item">
-    
     <div class="beat">
       <p>1</p>
       <select id="rhythm1" class="rhythm">
@@ -58,7 +80,6 @@
         <option value="rhythm5">⑤</option>
         <option value="rhythm6">⑥</option>
       </select>
-
   </div>
   
   <div class="beat">
@@ -156,7 +177,6 @@
       <option value="rhythm5">⑤</option>
       <option value="rhythm6">⑥</option>
     </select>
-
   </div>
     
     <div class="beat">
@@ -715,13 +735,26 @@ const notes = new Array(32);
 
 function displayNote(){
   ABCJS.renderAbc("note","L:1/4\n E2 t E2 t| E4 | z E z E|z E z E|E E/E/2 E z|E E/E/2 E z|" ,{add_classes: true,responsive: "resize",paddingtop:"0",paddingbottom:"-16"});
-  ABCJS.renderAbc("note2","L:1/4\n E/E/2 E/E/2 E/E/2 E/E/2 | E/E/2 E/E/2 E/E/2 E/E/2 | E3/2 E/2 E z | E3/2 E/2 E z| E3/2 E/2 E E | z E E z",{add_classes: true,responsive: "resize",paddingtop:"0",paddingbottom:"-16"});
+  ABCJS.renderAbc("note2","L:1/4\n E/E/2 E/E/2 E/E/2 E/E/2 | E/E/2 E/E/2 E/E/2 E/E/2 | E3/2 E/2 E z | E3/2 E/2 E z| E3/2 E/2 E E | z E E z |",{add_classes: true,responsive: "resize",paddingtop:"0",paddingbottom:"-16"});
 }    
 
 function playMode(){
   changeTempo();
+  changeRhythm();
   preparePlay();
-  playRhythm();
+  switch (play_mode.value){
+    case "select":
+      playRhythm();
+        break;
+    case "1personMode":
+      melody1();
+      Tone.Transport.start();
+        break;
+    case "allPlay":
+      playRhythm();
+        break;
+    default:  
+  }  
 }
 
 function changeTempo(){
@@ -931,7 +964,6 @@ function melody4(){
 
 
 function playRhythm(){
-    changeRhythm();
     melody1();
     melody2();
     melody3();
