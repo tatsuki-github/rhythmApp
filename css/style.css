@@ -129,3 +129,20 @@ button {
 #stop::after {
   left: 55%;
 }
+
+.rhythmImg {
+  display: flex;
+  width: 100%;
+  margin: 8px 8px 40px 8px;
+}
+
+.rhythmImg img {
+  width: 80%;
+  margin: 4px;
+  border: 0.1rem solid black;
+}
+
+.rhythmImg p {
+  margin: 0 0 16px 0;
+  font-size: 20px;
+}
