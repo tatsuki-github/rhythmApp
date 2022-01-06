@@ -134,13 +134,12 @@ button {
 
 .rhythmImg {
   display: flex;
-  width: 80%;
+  width: 96%;
   margin: 8px auto 40px auto;
 }
 
 .rhythmImg img {
-  width: 88%;
-  margin: 4px;
+  width: 96%;
   border: 0.1rem solid black;
 }
 
