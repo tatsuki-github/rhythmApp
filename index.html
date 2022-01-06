@@ -780,11 +780,11 @@ function Refresh(){
   Tone.Transport.cancel();
 }
 
-function preparePlay(){
-  if(tempo_category.value == "select"){
+
+if(tempo_category.value == "select"){
   tempo_category.value = "tempo95";    
 }
-}
+
 
 
 const notes = new Array(32); 
@@ -797,7 +797,6 @@ function displayNote(){
 function playMode(){
   changeTempo();
   changeRhythm();
-  preparePlay();
   switch (play_mode.value){
     case "select":
       playRhythm();
@@ -825,6 +824,7 @@ function changeTempo(){
     Tone.Transport.bpm.value = 115;
         break;
     default:  
+    Tone.Transport.bpm.value = 95;
   }  
 }
 
