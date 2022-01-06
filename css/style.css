@@ -139,12 +139,12 @@ button {
 }
 
 .rhythmImg img {
-  width: 80%;
+  width: 100%;
   margin: 4px;
   border: 0.1rem solid black;
 }
 
 .rhythmImg p {
   margin: 0 0 16px 0;
-  font-size: 20px;
+  font-size: 16px;
 }
