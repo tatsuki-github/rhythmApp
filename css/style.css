@@ -30,15 +30,16 @@ select {
 }
 
 .item {
+  width: 100%;
   display: flex;
-  margin: -0.4rem 1.8rem 1rem 1.8rem;
+  margin: 0 auto 1rem 10%;
 }
 
 .part {
   display: flex;
   width: 100%;
   height: auto;
-  margin: 0 2.2rem 0 1.2rem;
+  margin: 0 auto 0 auto;
 }
 
 .beat {
@@ -58,8 +59,9 @@ select {
 }
 
 .buttons {
+  width: 50%;
   display: flex;
-  margin: 1.6rem 0 0 0;
+  margin: 1.6rem auto 0 auto;
   justify-content: space-around;
 }
 
