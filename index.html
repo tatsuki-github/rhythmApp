@@ -26,48 +26,35 @@
     <option value="tempo95">&#9833; = 95</option>
     <option value="tempo115">&#9833; = 115</option>
   </select>
-  
-
-  <div class="buttons">
-    <select name="play_mode" id="play_mode">
-      <option value="select" selected>再生モード</option>
-      <option value="1personMode">一人モード</option>
-      <option value="allPlay">全員モード</option>
-    </select>
-    
-    <button id = "play"></button>
-    <button id = "stop"></button>
-  </div>
 </div>
 
 <div class="rhythmImg">
   <div>
-    <img src="img/rhythm1.png" alt="">
+    <img src="img/rhythm1.png" alt="" id="rhythm-1">
     <p>①</p>
   </div>
   <div>
-    <img src="img/rhythm2.png" alt="">
+    <img src="img/rhythm2.png" alt="" id="rhythm-2">
     <p>②</p>
   </div>
   <div>
-    <img src="img/rhythm3.png" alt="">
+    <img src="img/rhythm3.png" alt="" id="rhythm-3">
     <p>③</p>
   </div>
   <div>
-    <img src="img/rhythm4.png" alt="">
+    <img src="img/rhythm4.png" alt="" id="rhythm-4">
     <p>④</p>
   </div>
   <div>
-    <img src="img/rhythm5.png" alt="">
+    <img src="img/rhythm5.png" alt="" id="rhythm-5">
     <p>⑤</p>
   </div>
   <div>
-    <img src="img/rhythm6.png" alt="">
+    <img src="img/rhythm6.png" alt="" id="rhythm-6">
     <p>⑥</p>
   </div>
 </div>
 
-<div id="first">
   <div class="item">
     <div class="beat">
       <p>1</p>
@@ -218,8 +205,8 @@
         <option value="rhythm5">⑤</option>
         <option value="rhythm6">⑥</option>
       </select>
-
     </div>
+    <img src="img/rhythm7.png" alt="" width="7%">
   </div>
   <div class="item">
     
@@ -376,6 +363,7 @@
       </select>
 
     </div>
+    <img src="img/rhythm7.png" alt="" width="7%">
   </div>
   <div class="item">
     
@@ -532,6 +520,7 @@
       </select>
 
     </div>
+    <img src="img/rhythm7.png" alt="" width="7%">
   </div>
   <div class="item">
     
@@ -688,7 +677,20 @@
       </select>
 
     </div>
+    <img src="img/rhythm7.png" alt="" width="7%">
+
   </div>
+
+
+<div class="buttons">
+  <select name="play_mode" id="play_mode">
+    <option value="select" selected>再生モード</option>
+    <option value="1personMode">一人モード</option>
+    <option value="allPlay">全員モード</option>
+  </select>
+  
+  <button id = "play"></button>
+  <button id = "stop"></button>
 </div>
 
 <script>
@@ -717,6 +719,60 @@ document.getElementById("stop").addEventListener("click", function() {
     for(i = 0; i < 44; i++){
       rhythmCategory[i] = document.getElementById(`rhythm${i+1}`);
     }
+
+document.getElementById("rhythm-1").addEventListener("click", function() {
+  changeTempo();
+  const synth = new Tone.Synth().toDestination();
+  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+  const melody = new Tone.Part(setPlay, rhythmList1).start();
+  melody.loop = 0; 
+  Tone.Transport.start();
+}, false);
+
+document.getElementById("rhythm-2").addEventListener("click", function() {
+  changeTempo();
+  const synth = new Tone.Synth().toDestination();
+  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+  const melody = new Tone.Part(setPlay, rhythmList2).start();
+  melody.loop = 0; 
+  Tone.Transport.start();
+}, false);
+
+document.getElementById("rhythm-3").addEventListener("click", function() {
+  changeTempo();
+  const synth = new Tone.Synth().toDestination();
+  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+  const melody = new Tone.Part(setPlay, rhythmList3).start();
+  melody.loop = 0; 
+  Tone.Transport.start();
+}, false);
+
+document.getElementById("rhythm-4").addEventListener("click", function() {
+  changeTempo();
+  const synth = new Tone.Synth().toDestination();
+  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+  const melody = new Tone.Part(setPlay, rhythmList4).start();
+  melody.loop = 0; 
+  Tone.Transport.start();
+}, false);
+
+document.getElementById("rhythm-5").addEventListener("click", function() {
+  changeTempo();
+  const synth = new Tone.Synth().toDestination();
+  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+  const melody = new Tone.Part(setPlay, rhythmList5).start();
+  melody.loop = 0; 
+  Tone.Transport.start();
+}, false);
+
+document.getElementById("rhythm-6").addEventListener("click", function() {
+  changeTempo();
+  const synth = new Tone.Synth().toDestination();
+  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+  const melody = new Tone.Part(setPlay, rhythmList6).start();
+  melody.loop = 0; 
+  Tone.Transport.start();
+}, false);
 
 
 function Refresh(){
@@ -836,6 +892,10 @@ function changeTempo(){
   {time: "1:2", duration: "4n"},
   ]
 
+  const rhythmList7 = [
+  {time: "0:0", duration: "4n"}
+  ]
+
 
 function changeRhythm(){
   for(i = 0; i < rhythmCategory.length; i++){
@@ -881,7 +941,7 @@ const melodyList = new Array(44);
 
 function melody1(){
   const synth = new Tone.Synth().toDestination();
-  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time, 2.5);}
   const melody1 = new Tone.Part(setPlay, melodyList[0]).start();
   const melody2 = new Tone.Part(setPlay, melodyList[1]).start("2m");
   const melody3 = new Tone.Part(setPlay, melodyList[2]).start("4m");
@@ -893,6 +953,8 @@ function melody1(){
   const melody9 = new Tone.Part(setPlay, melodyList[8]).start("16m");
   const melody10 = new Tone.Part(setPlay, melodyList[9]).start("18m");
   const melody11 = new Tone.Part(setPlay, melodyList[10]).start("20m");
+  const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
+
 
   Tone.loop = 0;
 
@@ -912,6 +974,7 @@ function melody2(){
   const melody9 = new Tone.Part(setPlay, melodyList[19]).start("16m");
   const melody10 = new Tone.Part(setPlay, melodyList[20]).start("18m");
   const melody11 = new Tone.Part(setPlay, melodyList[21]).start("20m");
+  const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
 
   Tone.loop = 0;
 
@@ -926,7 +989,8 @@ function melody3(){
 	},
 	baseUrl: "https://tonejs.github.io/audio/casio/",
 }).toDestination();
-  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+
+  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time, 5);}
   const melody1 = new Tone.Part(setPlay, melodyList[22]).start();
   const melody2 = new Tone.Part(setPlay, melodyList[23]).start("2m");
   const melody3 = new Tone.Part(setPlay, melodyList[24]).start("4m");
@@ -938,6 +1002,7 @@ function melody3(){
   const melody9 = new Tone.Part(setPlay, melodyList[30]).start("16m");
   const melody10 = new Tone.Part(setPlay, melodyList[31]).start("18m");
   const melody11 = new Tone.Part(setPlay, melodyList[32]).start("20m");
+  const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
 
   Tone.loop = 0;
 
@@ -957,6 +1022,7 @@ function melody4(){
   const melody9 = new Tone.Part(setPlay, melodyList[41]).start("16m");
   const melody10 = new Tone.Part(setPlay, melodyList[42]).start("18m");
   const melody11 = new Tone.Part(setPlay, melodyList[43]).start("20m");
+  const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
 
   Tone.loop = 0;
 
