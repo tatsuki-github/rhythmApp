@@ -24,15 +24,19 @@ p {
 select {
   color: #000;
   font-weight: bold;
-  width: 4rem;
+  width: 5rem;
   height: 3rem;
   margin: 0;
 }
 
 .item {
-  width: 80%;
+  width: 100%;
   display: flex;
-  margin: 0 auto 1rem auto;
+  padding: 1rem;
+}
+
+.item img {
+  margin: 0.5rem 0 0 0;
 }
 
 .part {
@@ -77,7 +81,7 @@ button {
 }
 
 #play_mode {
-  width: 6rem;
+  width: 8rem;
   height: 2.8rem;
   margin: 0.2rem 0.5rem 0 0;
   background-color: #eedab9;
