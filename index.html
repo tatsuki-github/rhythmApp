@@ -52,7 +52,7 @@
 
 
 
-  <div class="item">
+  <div class="item" id="first">
     <div class="beat">
       <p>1</p>
       <select id="rhythm1" class="rhythm">
@@ -208,7 +208,7 @@
 
 
 
-  <div class="item">
+  <div class="item" id="second">
     <div class="beat">
       <p>1</p>
       <select  id="rhythm12" class="rhythm">
@@ -367,7 +367,7 @@
 
 
 
-  <div class="item">
+  <div class="item" id="third">
     <div class="beat">
       <p>1</p>
       <select  id="rhythm23" class="rhythm">
@@ -526,7 +526,7 @@
 
 
 
-  <div class="item">
+  <div class="item" id="forth">
     <div class="beat">
       <p>1</p>
       <select  id="rhythm34" class="rhythm">
@@ -710,9 +710,6 @@
 </div>
 
 <script>
-  window.addEventListener("load", function(){
-    displayNote();
-  }, false)
 
 document.getElementById("play").addEventListener("click", function() {
     playMode();
@@ -796,15 +793,7 @@ function Refresh(){
   Tone.Transport.cancel();
 }
 
-
-
-
 const notes = new Array(32); 
-
-function displayNote(){
-  ABCJS.renderAbc("note","L:1/4\n E2 t E2 t| E4 | z E z E|z E z E|E E/E/2 E z|E E/E/2 E z|" ,{add_classes: true,responsive: "resize",paddingtop:"0",paddingbottom:"-16"});
-  ABCJS.renderAbc("note2","L:1/4\n E/E/2 E/E/2 E/E/2 E/E/2 | E/E/2 E/E/2 E/E/2 E/E/2 | E3/2 E/2 E z | E3/2 E/2 E z| E3/2 E/2 E E | z E E z |",{add_classes: true,responsive: "resize",paddingtop:"0",paddingbottom:"-16"});
-}  
 
 function playRhythm(){
     melody1();
@@ -989,7 +978,6 @@ function melody1(){
 
 
   Tone.loop = 0;
-
 }
 
 function melody2(){
@@ -1009,7 +997,6 @@ function melody2(){
   const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
 
   Tone.loop = 0;
-
 }
 
 
@@ -1037,7 +1024,6 @@ function melody3(){
   const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
 
   Tone.loop = 0;
-
 }
 
 function melody4(){
@@ -1057,7 +1043,6 @@ function melody4(){
   const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
 
   Tone.loop = 0;
-
 }
 
 </script>
