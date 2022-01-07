@@ -33,23 +33,24 @@ select {
   width: 88%;
   display: flex;
   margin: 16px auto 0 auto;
+  padding: 0.2rem;
   justify-content: space-around;
 }
 
 #first {
-  border: 0.4rem solid lightcoral;
+  border: 0.3rem solid lightcoral;
 }
 
 #second {
-  border: 0.4rem solid lightskyblue;
+  border: 0.3rem solid lightskyblue;
 }
 
 #third {
-  border: 0.4rem solid yellow;
+  border: 0.3rem solid yellow;
 }
 
 #forth {
-  border: 0.4rem solid lightgreen;
+  border: 0.3rem solid lightgreen;
 }
 
 .item img {
