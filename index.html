@@ -19,14 +19,6 @@
 
 <body>
 
-<div class="tempo_and_piano">
-  <select name="tempo_category" id="tempo_category">
-    <option value="select" selected>テンポ</option>
-    <option value="tempo75">&#9833; = 75</option>
-    <option value="tempo95">&#9833; = 95</option>
-    <option value="tempo115">&#9833; = 115</option>
-  </select>
-</div>
 
 <div class="rhythmImg">
   <div>
@@ -206,7 +198,7 @@
         <option value="rhythm6">⑥</option>
       </select>
     </div>
-    <img src="img/rhythm7.png" alt="" width="7%">
+    <img src="img/rhythm7.png" alt="" width="12%">
   </div>
   <div class="item">
     
@@ -363,7 +355,7 @@
       </select>
 
     </div>
-    <img src="img/rhythm7.png" alt="" width="7%">
+    <img src="img/rhythm7.png" alt="" width="12%">
   </div>
   <div class="item">
     
@@ -520,7 +512,7 @@
       </select>
 
     </div>
-    <img src="img/rhythm7.png" alt="" width="7%">
+    <img src="img/rhythm7.png" alt="" width="12%">
   </div>
   <div class="item">
     
@@ -677,16 +669,28 @@
       </select>
 
     </div>
-    <img src="img/rhythm7.png" alt="" width="7%">
+    <img src="img/rhythm7.png" alt="" width="12%">
 
   </div>
 
 
 <div class="buttons">
+  <div class="tempo_and_piano">
+    <select name="tempo_category" id="tempo_category">
+      <option value="select" selected>テンポ</option>
+      <option value="tempo75">&#9833; = 75</option>
+      <option value="tempo95">&#9833; = 95</option>
+      <option value="tempo115">&#9833; = 115</option>
+    </select>
+  </div>
+  
   <select name="play_mode" id="play_mode">
-    <option value="select" selected>再生モード</option>
-    <option value="1personMode">一人モード</option>
-    <option value="allPlay">全員モード</option>
+    <option value="3personMode" selected>3人再生モード</option>
+    <option value="4personMode">4人再生モード</option>
+    <option value="1personMode1">１人目再生モード</option>
+    <option value="1personMode2">２人目再生モード</option>
+    <option value="1personMode3">３人目再生モード</option>
+    <option value="1personMode4">４人目再生モード</option>
   </select>
   
   <button id = "play"></button>
@@ -781,10 +785,6 @@ function Refresh(){
 }
 
 
-if(tempo_category.value == "select"){
-  tempo_category.value = "tempo95";    
-}
-
 
 
 const notes = new Array(32); 
@@ -792,25 +792,51 @@ const notes = new Array(32);
 function displayNote(){
   ABCJS.renderAbc("note","L:1/4\n E2 t E2 t| E4 | z E z E|z E z E|E E/E/2 E z|E E/E/2 E z|" ,{add_classes: true,responsive: "resize",paddingtop:"0",paddingbottom:"-16"});
   ABCJS.renderAbc("note2","L:1/4\n E/E/2 E/E/2 E/E/2 E/E/2 | E/E/2 E/E/2 E/E/2 E/E/2 | E3/2 E/2 E z | E3/2 E/2 E z| E3/2 E/2 E E | z E E z |",{add_classes: true,responsive: "resize",paddingtop:"0",paddingbottom:"-16"});
-}    
+}  
+
+function playRhythm(){
+    melody1();
+    melody2();
+    melody3();
+    melody4();
+    Tone.Transport.start();
+}
 
 function playMode(){
   changeTempo();
   changeRhythm();
   switch (play_mode.value){
-    case "select":
-      playRhythm();
+    case "3personMode":
+      melody1();
+      melody2();
+      melody3();
+      Tone.Transport.start();
         break;
-    case "1personMode":
+    case "4personMode":
+      playRhythm();
+      Tone.Transport.start();
+        break;
+    case "1personMode1":
       melody1();
       Tone.Transport.start();
         break;
-    case "allPlay":
-      playRhythm();
+    case "1personMode2":
+      melody2();
+      Tone.Transport.start();
         break;
-    default:  
+    case "1personMode3":
+      melody3();
+      Tone.Transport.start();
+        break;
+    case "1personMode4":
+      melody4();
+      Tone.Transport.start();
+        break;
+    default:
+      playRhythm();
   }  
 }
+
 
 function changeTempo(){
     switch (tempo_category.value){
@@ -826,6 +852,10 @@ function changeTempo(){
     default:  
     Tone.Transport.bpm.value = 95;
   }  
+}
+
+if(tempo_category.value == "select"){
+  tempo_category.value = "tempo95";    
 }
 
 
@@ -896,6 +926,8 @@ function changeTempo(){
   {time: "0:0", duration: "4n"}
   ]
 
+  const melodyList = new Array(44); 
+
 
 function changeRhythm(){
   for(i = 0; i < rhythmCategory.length; i++){
@@ -926,18 +958,6 @@ function changeRhythm(){
   }
 }
 
-const melodyList = new Array(44); 
-
-  /*
-  AMSynth
-  DuoSynth
-  FMSynth
-  MembraneSynth
-  MetalSynth
-  MonoSynth
-  Sampler
-  Synth
-  */
 
 function melody1(){
   const synth = new Tone.Synth().toDestination();
@@ -1027,16 +1047,6 @@ function melody4(){
   Tone.loop = 0;
 
 }
-
-
-function playRhythm(){
-    melody1();
-    melody2();
-    melody3();
-    melody4();
-    Tone.Transport.start();
-}
-
 
 </script>
 <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
