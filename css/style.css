@@ -38,19 +38,19 @@ select {
 }
 
 #first {
-  border: 0.3rem solid lightcoral;
+  border: 0.2rem solid lightcoral;
 }
 
 #second {
-  border: 0.3rem solid lightskyblue;
+  border: 0.2rem solid lightskyblue;
 }
 
 #third {
-  border: 0.3rem solid yellow;
+  border: 0.2rem solid yellow;
 }
 
 #forth {
-  border: 0.3rem solid lightgreen;
+  border: 0.2rem solid lightgreen;
 }
 
 .item img {
