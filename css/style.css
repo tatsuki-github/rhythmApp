@@ -21,9 +21,11 @@ p {
   font-size: 12px;
 }
 
-.item select {
+select {
   color: #000;
   font-weight: bold;
+}
+.item select {
   width: 4rem;
   height: 3rem;
   margin: 0;
