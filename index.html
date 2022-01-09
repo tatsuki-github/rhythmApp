@@ -627,10 +627,7 @@ function playRhythm(){
 
 function playMode(){
   changeTempo();
-  changeRhythm1();
-  changeRhythm2();
-  changeRhythm3();
-  changeRhythm4();
+  changeRhythm();
   Tone.Transport.start();
 
   switch (play_mode.value){
@@ -680,9 +677,6 @@ if(tempo_category.value == "select"){
   tempo_category.value = "tempo95";    
 }
 
-
-
-  
   const rhythmList1 = [
   {time: "0:0", duration: "2n"},
   {time: "0:2", duration: "2n"},
@@ -748,11 +742,7 @@ if(tempo_category.value == "select"){
   {time: "0:0", duration: "4n"}
   ]
 
-  const melodyList1 = [];
-  const melodyList2 = []; 
-  const melodyList3 = []; 
-  const melodyList4 = []; 
-
+  const melodyList = new Array(4);
 
 for(i = 1; i < 45; i++){
   rhythmCategory[i] = document.getElementById(`rhythm${i}`);
@@ -763,101 +753,31 @@ for(i = 1; i < 5; i++){
 }
 
 
-function changeRhythm1(){
-    switch (selectRhythmCategory[1].value){
+function changeRhythm(){
+  for(i = 1; i < 5; i++){
+    switch (selectRhythmCategory[i].value){
         case "rhythm1":
-          melodyList1[0] = rhythmList1;
+          melodyList[i-1] = rhythmList1;
         break;
         case "rhythm2":
-          melodyList1[0] = rhythmList2;
+          melodyList[i-1] = rhythmList2;
         break;
         case "rhythm3":
-          melodyList1[0] = rhythmList3;
+          melodyList[i-1] = rhythmList3;
         break;
         case "rhythm4":
-          melodyList1[0] = rhythmList4;
+          melodyList[i-1] = rhythmList4;
         break;
         case "rhythm5":
-          melodyList1[0] = rhythmList5;
+          melodyList[i-1] = rhythmList5;
         break;
         case "rhythm6":
-        melodyList1[0] = rhythmList6;
+          melodyList[i-1] = rhythmList6;
         break;
         default:  
     }  
+  }
 }
-
-function changeRhythm2(){
-    switch (selectRhythmCategory[2].value){
-        case "rhythm1":
-          melodyList2[0] = rhythmList1;
-        break;
-        case "rhythm2":
-          melodyList2[0] = rhythmList2;
-        case "rhythm3":
-          melodyList2[0] = rhythmList3;
-        break;
-        case "rhythm4":
-          melodyList2[0] = rhythmList4;
-        break;
-        case "rhythm5":
-          melodyList2[0] = rhythmList5;
-        break;
-        case "rhythm6":
-        melodyList2[0] = rhythmList6;
-        break;
-        default:  
-    }  
-}
-
-function changeRhythm3(){
-    switch (selectRhythmCategory[3].value){
-        case "rhythm1":
-          melodyList3[0] = rhythmList1;
-        break;
-        case "rhythm2":
-          melodyList3[0] = rhythmList2;
-        break;
-        case "rhythm3":
-          melodyList3[0] = rhythmList3;
-        break;
-        case "rhythm4":
-          melodyList3[0] = rhythmList4;
-        break;
-        case "rhythm5":
-          melodyList3[0] = rhythmList5;
-        break;
-        case "rhythm6":
-        melodyList3[0] = rhythmList6;
-        break;
-        default:  
-    }  
-}
-
-function changeRhythm4(){
-    switch (selectRhythmCategory[4].value){
-        case "rhythm1":
-          melodyList4[0] = rhythmList1;
-        break;
-        case "rhythm2":
-          melodyList4[0] = rhythmList2;
-        break;
-        case "rhythm3":
-          melodyList4[0] = rhythmList3;
-        break;
-        case "rhythm4":
-          melodyList4[0] = rhythmList4;
-        break;
-        case "rhythm5":
-          melodyList4[0] = rhythmList5;
-        break;
-        case "rhythm6":
-        melodyList4[0] = rhythmList6;
-        break;
-        default:  
-    }  
-}
-
 
 
 for(i = 1; i < 45; i++){
@@ -905,37 +825,37 @@ function melody1(){
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time, 2.5);}
 
   if(rhythmCategory[1].value == "on"){
-    const melody1 = new Tone.Part(setPlay, melodyList1[0]).start();
+    const melody1 = new Tone.Part(setPlay, melodyList[0]).start();
   }
   if(rhythmCategory[2].value == "on"){
-    const melody2 = new Tone.Part(setPlay, melodyList1[0]).start("2m");
+    const melody2 = new Tone.Part(setPlay, melodyList[0]).start("2m");
   }
   if(rhythmCategory[3].value == "on"){
-    const melody3 = new Tone.Part(setPlay, melodyList1[0]).start("4m");
+    const melody3 = new Tone.Part(setPlay, melodyList[0]).start("4m");
   }
   if(rhythmCategory[4].value == "on"){
-    const melody4 = new Tone.Part(setPlay, melodyList1[0]).start("6m");
+    const melody4 = new Tone.Part(setPlay, melodyList[0]).start("6m");
   }
   if(rhythmCategory[5].value == "on"){
-    const melody5 = new Tone.Part(setPlay, melodyList1[0]).start("8m");
+    const melody5 = new Tone.Part(setPlay, melodyList[0]).start("8m");
   }
   if(rhythmCategory[6].value == "on"){
-    const melody6 = new Tone.Part(setPlay, melodyList1[0]).start("10m");
+    const melody6 = new Tone.Part(setPlay, melodyList[0]).start("10m");
   }
   if(rhythmCategory[7].value == "on"){
-    const melody7 = new Tone.Part(setPlay, melodyList1[0]).start("12m");
+    const melody7 = new Tone.Part(setPlay, melodyList[0]).start("12m");
   }
   if(rhythmCategory[8].value == "on"){
-    const melody8 = new Tone.Part(setPlay, melodyList1[0]).start("14m"); 
+    const melody8 = new Tone.Part(setPlay, melodyList[0]).start("14m"); 
   }
   if(rhythmCategory[9].value == "on"){
-    const melody9 = new Tone.Part(setPlay, melodyList1[0]).start("16m");
+    const melody9 = new Tone.Part(setPlay, melodyList[0]).start("16m");
   }
   if(rhythmCategory[10].value == "on"){
-    const melody10 = new Tone.Part(setPlay, melodyList1[0]).start("18m");    
+    const melody10 = new Tone.Part(setPlay, melodyList[0]).start("18m");    
   }
   if(rhythmCategory[11].value == "on"){
-    const melody11 = new Tone.Part(setPlay, melodyList1[0]).start("20m");
+    const melody11 = new Tone.Part(setPlay, melodyList[0]).start("20m");
   }
 
   const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
@@ -946,37 +866,37 @@ function melody2(){
   const synth = new Tone.MetalSynth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
   if(rhythmCategory[12].value == "on"){
-    const melody1 = new Tone.Part(setPlay, melodyList2[0]).start();
+    const melody1 = new Tone.Part(setPlay, melodyList[1]).start();
   }
   if(rhythmCategory[13].value == "on"){
-    const melody2 = new Tone.Part(setPlay, melodyList2[0]).start("2m");
+    const melody2 = new Tone.Part(setPlay, melodyList[1]).start("2m");
   }
   if(rhythmCategory[14].value == "on"){
-    const melody3 = new Tone.Part(setPlay, melodyList2[0]).start("4m");
+    const melody3 = new Tone.Part(setPlay, melodyList[1]).start("4m");
   }
   if(rhythmCategory[15].value == "on"){
-    const melody4 = new Tone.Part(setPlay, melodyList2[0]).start("6m");
+    const melody4 = new Tone.Part(setPlay, melodyList[1]).start("6m");
   }
   if(rhythmCategory[16].value == "on"){
-    const melody5 = new Tone.Part(setPlay, melodyList2[0]).start("8m");
+    const melody5 = new Tone.Part(setPlay, melodyList[1]).start("8m");
   }
   if(rhythmCategory[17].value == "on"){
-    const melody6 = new Tone.Part(setPlay, melodyList2[0]).start("10m");
+    const melody6 = new Tone.Part(setPlay, melodyList[1]).start("10m");
   }
   if(rhythmCategory[18].value == "on"){
-    const melody7 = new Tone.Part(setPlay, melodyList2[0]).start("12m");
+    const melody7 = new Tone.Part(setPlay, melodyList[1]).start("12m");
   }
   if(rhythmCategory[19].value == "on"){
-    const melody8 = new Tone.Part(setPlay, melodyList2[0]).start("14m"); 
+    const melody8 = new Tone.Part(setPlay, melodyList[1]).start("14m"); 
   }
   if(rhythmCategory[20].value == "on"){
-    const melody9 = new Tone.Part(setPlay, melodyList2[0]).start("16m");
+    const melody9 = new Tone.Part(setPlay, melodyList[1]).start("16m");
   }
   if(rhythmCategory[21].value == "on"){
-    const melody10 = new Tone.Part(setPlay, melodyList2[0]).start("18m");    
+    const melody10 = new Tone.Part(setPlay, melodyList[1]).start("18m");    
   }
   if(rhythmCategory[22].value == "on"){
-    const melody11 = new Tone.Part(setPlay, melodyList2[0]).start("20m");
+    const melody11 = new Tone.Part(setPlay, melodyList[1]).start("20m");
   }
   const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
 
@@ -994,37 +914,37 @@ function melody3(){
 
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time, 5);}
   if(rhythmCategory[23].value == "on"){
-    const melody1 = new Tone.Part(setPlay, melodyList3[0]).start();
+    const melody1 = new Tone.Part(setPlay, melodyList[2]).start();
   }
   if(rhythmCategory[24].value == "on"){
-    const melody2 = new Tone.Part(setPlay, melodyList3[0]).start("2m");
+    const melody2 = new Tone.Part(setPlay, melodyList[2]).start("2m");
   }
   if(rhythmCategory[25].value == "on"){
-    const melody3 = new Tone.Part(setPlay, melodyList3[0]).start("4m");
+    const melody3 = new Tone.Part(setPlay, melodyList[2]).start("4m");
   }
   if(rhythmCategory[26].value == "on"){
-    const melody4 = new Tone.Part(setPlay, melodyList3[0]).start("6m");
+    const melody4 = new Tone.Part(setPlay, melodyList[2]).start("6m");
   }
   if(rhythmCategory[27].value == "on"){
-    const melody5 = new Tone.Part(setPlay, melodyList3[0]).start("8m");
+    const melody5 = new Tone.Part(setPlay, melodyList[2]).start("8m");
   }
   if(rhythmCategory[28].value == "on"){
-    const melody6 = new Tone.Part(setPlay, melodyList3[0]).start("10m");
+    const melody6 = new Tone.Part(setPlay, melodyList[2]).start("10m");
   }
   if(rhythmCategory[29].value == "on"){
-    const melody7 = new Tone.Part(setPlay, melodyList3[0]).start("12m");
+    const melody7 = new Tone.Part(setPlay, melodyList[2]).start("12m");
   }
   if(rhythmCategory[30].value == "on"){
-    const melody8 = new Tone.Part(setPlay, melodyList3[0]).start("14m"); 
+    const melody8 = new Tone.Part(setPlay, melodyList[2]).start("14m"); 
   }
   if(rhythmCategory[31].value == "on"){
-    const melody9 = new Tone.Part(setPlay, melodyList3[0]).start("16m");
+    const melody9 = new Tone.Part(setPlay, melodyList[2]).start("16m");
   }
   if(rhythmCategory[32].value == "on"){
-    const melody10 = new Tone.Part(setPlay, melodyList3[0]).start("18m");    
+    const melody10 = new Tone.Part(setPlay, melodyList[2]).start("18m");    
   }
   if(rhythmCategory[33].value == "on"){
-    const melody11 = new Tone.Part(setPlay, melodyList3[0]).start("20m");
+    const melody11 = new Tone.Part(setPlay, melodyList[2]).start("20m");
   }
   const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
 
@@ -1034,37 +954,37 @@ function melody4(){
   const synth = new Tone.MembraneSynth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
   if(rhythmCategory[34].value == "on"){
-    const melody1 = new Tone.Part(setPlay, melodyList4[0]).start();
+    const melody1 = new Tone.Part(setPlay, melodyList[3]).start();
   }
   if(rhythmCategory[35].value == "on"){
-    const melody2 = new Tone.Part(setPlay, melodyList4[0]).start("2m");
+    const melody2 = new Tone.Part(setPlay, melodyList[3]).start("2m");
   }
   if(rhythmCategory[36].value == "on"){
-    const melody3 = new Tone.Part(setPlay, melodyList4[0]).start("4m");
+    const melody3 = new Tone.Part(setPlay, melodyList[3]).start("4m");
   }
   if(rhythmCategory[37].value == "on"){
-    const melody4 = new Tone.Part(setPlay, melodyList4[0]).start("6m");
+    const melody4 = new Tone.Part(setPlay, melodyList[3]).start("6m");
   }
   if(rhythmCategory[38].value == "on"){
-    const melody5 = new Tone.Part(setPlay, melodyList4[0]).start("8m");
+    const melody5 = new Tone.Part(setPlay, melodyList[3]).start("8m");
   }
   if(rhythmCategory[39].value == "on"){
-    const melody6 = new Tone.Part(setPlay, melodyList4[0]).start("10m");
+    const melody6 = new Tone.Part(setPlay, melodyList[3]).start("10m");
   }
   if(rhythmCategory[40].value == "on"){
-    const melody7 = new Tone.Part(setPlay, melodyList4[0]).start("12m");
+    const melody7 = new Tone.Part(setPlay, melodyList[3]).start("12m");
   }
   if(rhythmCategory[41].value == "on"){
-    const melody8 = new Tone.Part(setPlay, melodyList4[0]).start("14m"); 
+    const melody8 = new Tone.Part(setPlay, melodyList[3]).start("14m"); 
   }
   if(rhythmCategory[42].value == "on"){
-    const melody9 = new Tone.Part(setPlay, melodyList4[0]).start("16m");
+    const melody9 = new Tone.Part(setPlay, melodyList[3]).start("16m");
   }
   if(rhythmCategory[43].value == "on"){
-    const melody10 = new Tone.Part(setPlay, melodyList4[0]).start("18m");    
+    const melody10 = new Tone.Part(setPlay, melodyList[3]).start("18m");    
   }
   if(rhythmCategory[44].value == "on"){
-    const melody11 = new Tone.Part(setPlay, melodyList4[0]).start("20m");
+    const melody11 = new Tone.Part(setPlay, melodyList[3]).start("20m");
   }
 
   const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
