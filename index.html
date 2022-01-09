@@ -18,36 +18,36 @@
 <body>
 <div class="rhythmImg">
   <div>
-    <img src="img/rhythm1.png" alt="" id="rhythm-1">
+    <img src="img/rhythm1.png" alt="" id="rhythm-0">
     <p>①</p>
   </div>
   <div>
-    <img src="img/rhythm2.png" alt="" id="rhythm-2">
+    <img src="img/rhythm2.png" alt="" id="rhythm-1">
     <p>②</p>
   </div>
   <div>
-    <img src="img/rhythm3.png" alt="" id="rhythm-3">
+    <img src="img/rhythm3.png" alt="" id="rhythm-2">
     <p>③</p>
   </div>
 </div>
 
 <div class="rhythmImg">
   <div>
-    <img src="img/rhythm4.png" alt="" id="rhythm-4">
+    <img src="img/rhythm4.png" alt="" id="rhythm-3">
     <p>④</p>
   </div>
   <div>
-    <img src="img/rhythm5.png" alt="" id="rhythm-5">
+    <img src="img/rhythm5.png" alt="" id="rhythm-4">
     <p>⑤</p>
   </div>
   <div>
-    <img src="img/rhythm6.png" alt="" id="rhythm-6">
+    <img src="img/rhythm6.png" alt="" id="rhythm-5">
     <p>⑥</p>
   </div>
 </div>
 
 <div class="part">
-  <select id="rhythm_1" class="rhythm">
+  <select id="rhythm_0" class="rhythm">
     <option value="rhythm1" selected>①</option>
     <option value="rhythm2">②</option>
     <option value="rhythm3">③</option>
@@ -158,7 +158,7 @@
 
 
 <div class="part">
-  <select id="rhythm_2" class="rhythm">
+  <select id="rhythm_1" class="rhythm">
     <option value="rhythm1" selected>①</option>
     <option value="rhythm2">②</option>
     <option value="rhythm3">③</option>
@@ -273,7 +273,7 @@
 
 
 <div class="part">
-  <select id="rhythm_3" class="rhythm">
+  <select id="rhythm_2" class="rhythm">
     <option value="rhythm1" selected>①</option>
     <option value="rhythm2">②</option>
     <option value="rhythm3">③</option>
@@ -387,7 +387,7 @@
 
 
 <div class="part">
-  <select id="rhythm_4" class="rhythm">
+  <select id="rhythm_3" class="rhythm">
     <option value="rhythm1" selected>①</option>
     <option value="rhythm2">②</option>
     <option value="rhythm3">③</option>
@@ -542,7 +542,7 @@ document.getElementById("stop").addEventListener("click", function() {
 
     const rhythmCategory = [rhythm1,rhythm2,rhythm3,rhythm4,rhythm5,rhythm6,rhythm7,rhythm8,rhythm9,rhythm10,rhythm11,rhythm12,rhythm13,rhythm14,rhythm15,rhythm16,rhythm17,rhythm18,rhythm19,rhythm20,rhythm21,rhythm22,rhythm23,rhythm24,rhythm25,rhythm26,rhythm27,rhythm28,rhythm29,rhythm30,rhythm31,rhythm32,rhythm33,rhythm34,rhythm35,rhythm36,rhythm37,rhythm38,rhythm39,rhythm40,rhythm41,rhythm42,rhythm43,rhythm44];
 
-    const selectRhythmCategory = [rhythm_1,rhythm_2,rhythm_3,rhythm_4];
+    const selectRhythmCategory = [rhythm_0,rhythm_1,rhythm_2,rhythm_3];
 
     const play_mode = document.getElementById("play_mode");
     play_mode.onchange = Refresh;
@@ -552,7 +552,9 @@ function Refresh(){
   Tone.Transport.cancel();
 }
 
-document.getElementById("rhythm-1").addEventListener("click", function() {
+
+
+document.getElementById(`rhythm-0`).addEventListener("click", function() {
   changeTempo();
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
@@ -560,7 +562,7 @@ document.getElementById("rhythm-1").addEventListener("click", function() {
   Tone.Transport.start();
 }, false);
 
-document.getElementById("rhythm-2").addEventListener("click", function() {
+document.getElementById("rhythm-1").addEventListener("click", function() {
   changeTempo();
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
@@ -568,7 +570,7 @@ document.getElementById("rhythm-2").addEventListener("click", function() {
   Tone.Transport.start();
 }, false);
 
-document.getElementById("rhythm-3").addEventListener("click", function() {
+document.getElementById("rhythm-2").addEventListener("click", function() {
   changeTempo();
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
@@ -576,7 +578,7 @@ document.getElementById("rhythm-3").addEventListener("click", function() {
   Tone.Transport.start();
 }, false);
 
-document.getElementById("rhythm-4").addEventListener("click", function() {
+document.getElementById("rhythm-3").addEventListener("click", function() {
   changeTempo();
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
@@ -584,7 +586,7 @@ document.getElementById("rhythm-4").addEventListener("click", function() {
   Tone.Transport.start();
 }, false);
 
-document.getElementById("rhythm-5").addEventListener("click", function() {
+document.getElementById("rhythm-4").addEventListener("click", function() {
   changeTempo();
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
@@ -592,7 +594,7 @@ document.getElementById("rhythm-5").addEventListener("click", function() {
   Tone.Transport.start();
 }, false);
 
-document.getElementById("rhythm-6").addEventListener("click", function() {
+document.getElementById("rhythm-5").addEventListener("click", function() {
   changeTempo();
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
@@ -728,7 +730,7 @@ for(i = 1; i < 45; i++){
 }
 
 for(i = 0; i < selectRhythmCategory.length; i++){
-  selectRhythmCategory[i] = document.getElementById(`rhythm_${i+1}`);
+  selectRhythmCategory[i] = document.getElementById(`rhythm_${i}`);
 }
 
 function changeRhythm(){
@@ -800,15 +802,12 @@ for(i = 34; i < 45; i++){
 function melody1(){
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time, 2.5);}
-
   const melodies = new Array(11); 
-
   for(i = 0; i < melodies.length; i++){
     if(rhythmCategory[i+1].value == "on"){
     melodies[i] = new Tone.Part(setPlay, melodyList[0]).start(`${2*i}m`);
   }
 }
-
   const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
 }
 
@@ -816,7 +815,6 @@ function melody2(){
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("G4", note.duration, time, 2.5);}
   const melodies = new Array(11); 
-
   for(i = 0; i < melodies.length; i++){
     if(rhythmCategory[i+12].value == "on"){
     melodies[i] = new Tone.Part(setPlay, melodyList[1]).start(`${2*i}m`);
@@ -828,10 +826,8 @@ function melody2(){
 
 function melody3(){
   const synth = new Tone.MetalSynth().toDestination();
-
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
   const melodies = new Array(11); 
-
   for(i = 0; i < melodies.length; i++){
     if(rhythmCategory[i+23].value == "on"){
     melodies[i] = new Tone.Part(setPlay, melodyList[2]).start(`${2*i}m`);
@@ -844,7 +840,6 @@ function melody4(){
   const synth = new Tone.MembraneSynth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
   const melodies = new Array(11); 
-
   for(i = 0; i < melodies.length; i++){
     if(rhythmCategory[i+34].value == "on"){
     melodies[i] = new Tone.Part(setPlay, melodyList[3]).start(`${2*i}m`);
