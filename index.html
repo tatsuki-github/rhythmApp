@@ -561,7 +561,6 @@ document.getElementById("rhythm-1").addEventListener("click", function() {
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
   const melody = new Tone.Part(setPlay, rhythmList1).start();
-  melody.loop = 0; 
   Tone.Transport.start();
 }, false);
 
@@ -570,7 +569,6 @@ document.getElementById("rhythm-2").addEventListener("click", function() {
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
   const melody = new Tone.Part(setPlay, rhythmList2).start();
-  melody.loop = 0; 
   Tone.Transport.start();
 }, false);
 
@@ -579,7 +577,6 @@ document.getElementById("rhythm-3").addEventListener("click", function() {
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
   const melody = new Tone.Part(setPlay, rhythmList3).start();
-  melody.loop = 0; 
   Tone.Transport.start();
 }, false);
 
@@ -588,7 +585,6 @@ document.getElementById("rhythm-4").addEventListener("click", function() {
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
   const melody = new Tone.Part(setPlay, rhythmList4).start();
-  melody.loop = 0; 
   Tone.Transport.start();
 }, false);
 
@@ -597,7 +593,6 @@ document.getElementById("rhythm-5").addEventListener("click", function() {
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
   const melody = new Tone.Part(setPlay, rhythmList5).start();
-  melody.loop = 0; 
   Tone.Transport.start();
 }, false);
 
@@ -606,7 +601,6 @@ document.getElementById("rhythm-6").addEventListener("click", function() {
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
   const melody = new Tone.Part(setPlay, rhythmList6).start();
-  melody.loop = 0; 
   Tone.Transport.start();
 }, false);
 
@@ -617,13 +611,6 @@ function Refresh(){
 }
 
 const notes = new Array(32); 
-
-function playRhythm(){
-    melody1();
-    melody2();
-    melody3();
-    melody4();
-}
 
 function playMode(){
   changeTempo();
@@ -637,7 +624,10 @@ function playMode(){
       melody3();
         break;
     case "4personMode":
-      playRhythm();
+      melody1();
+      melody2();
+      melody3();
+      melody4();
         break;
     case "1personMode1":
       melody1();
@@ -652,7 +642,10 @@ function playMode(){
       melody4();
         break;
     default:
-      playRhythm();
+      melody1();
+      melody2();
+      melody3();
+      melody4();
   }  
 }
 
@@ -751,7 +744,6 @@ for(i = 1; i < 45; i++){
 for(i = 1; i < 5; i++){
   selectRhythmCategory[i] = document.getElementById(`rhythm_${i}`);
 }
-
 
 function changeRhythm(){
   for(i = 1; i < 5; i++){
@@ -863,8 +855,8 @@ function melody1(){
 }
 
 function melody2(){
-  const synth = new Tone.MetalSynth().toDestination();
-  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
+  const synth = new Tone.Synth().toDestination();
+  function setPlay(time, note) {synth.triggerAttackRelease("G4", note.duration, time, 2.5);}
   if(rhythmCategory[12].value == "on"){
     const melody1 = new Tone.Part(setPlay, melodyList[1]).start();
   }
