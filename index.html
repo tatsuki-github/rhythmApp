@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-  <head>
+<head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <title>リズムトレーニング</title>
-
 <script>
       document.write(
         '<link rel="stylesheet" href="css/style.css?' + new Date().getTime() + '">'
@@ -16,12 +13,9 @@
       );
       */
 </script>
-
 </head>
 
 <body>
-
-
 <div class="rhythmImg">
   <div>
     <img src="img/rhythm1.png" alt="" id="rhythm-1">
@@ -550,11 +544,13 @@ document.getElementById("stop").addEventListener("click", function() {
 
     const selectRhythmCategory = [rhythm_1,rhythm_2,rhythm_3,rhythm_4];
 
-
     const play_mode = document.getElementById("play_mode");
     play_mode.onchange = Refresh;
 
-
+function Refresh(){
+  Tone.Transport.stop();
+  Tone.Transport.cancel();
+}
 
 document.getElementById("rhythm-1").addEventListener("click", function() {
   changeTempo();
@@ -604,12 +600,6 @@ document.getElementById("rhythm-6").addEventListener("click", function() {
   Tone.Transport.start();
 }, false);
 
-
-function Refresh(){
-  Tone.Transport.stop();
-  Tone.Transport.cancel();
-}
-
 const notes = new Array(32); 
 
 function playMode(){
@@ -642,10 +632,6 @@ function playMode(){
       melody4();
         break;
     default:
-      melody1();
-      melody2();
-      melody3();
-      melody4();
   }  
 }
 
@@ -741,36 +727,35 @@ for(i = 1; i < 45; i++){
   rhythmCategory[i] = document.getElementById(`rhythm${i}`);
 }
 
-for(i = 1; i < 5; i++){
-  selectRhythmCategory[i] = document.getElementById(`rhythm_${i}`);
+for(i = 0; i < selectRhythmCategory.length; i++){
+  selectRhythmCategory[i] = document.getElementById(`rhythm_${i+1}`);
 }
 
 function changeRhythm(){
-  for(i = 1; i < 5; i++){
+  for(i = 0; i < selectRhythmCategory.length; i++){
     switch (selectRhythmCategory[i].value){
         case "rhythm1":
-          melodyList[i-1] = rhythmList1;
+          melodyList[i] = rhythmList1;
         break;
         case "rhythm2":
-          melodyList[i-1] = rhythmList2;
+          melodyList[i] = rhythmList2;
         break;
         case "rhythm3":
-          melodyList[i-1] = rhythmList3;
+          melodyList[i] = rhythmList3;
         break;
         case "rhythm4":
-          melodyList[i-1] = rhythmList4;
+          melodyList[i] = rhythmList4;
         break;
         case "rhythm5":
-          melodyList[i-1] = rhythmList5;
+          melodyList[i] = rhythmList5;
         break;
         case "rhythm6":
-          melodyList[i-1] = rhythmList6;
+          melodyList[i] = rhythmList6;
         break;
         default:  
     }  
   }
 }
-
 
 for(i = 1; i < 45; i++){
   rhythmCategory[i].onchange = colorChange;
@@ -849,9 +834,7 @@ function melody1(){
   if(rhythmCategory[11].value == "on"){
     const melody11 = new Tone.Part(setPlay, melodyList[0]).start("20m");
   }
-
   const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
-
 }
 
 function melody2(){
@@ -891,20 +874,13 @@ function melody2(){
     const melody11 = new Tone.Part(setPlay, melodyList[1]).start("20m");
   }
   const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
-
 }
 
 
 function melody3(){
-  const synth = new Tone.Sampler({
-	urls: {
-		A1: "A1.mp3",
-		A2: "A2.mp3",
-	},
-	baseUrl: "https://tonejs.github.io/audio/casio/",
-}).toDestination();
+  const synth = new Tone.MetalSynth().toDestination();
 
-  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time, 5);}
+  function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
   if(rhythmCategory[23].value == "on"){
     const melody1 = new Tone.Part(setPlay, melodyList[2]).start();
   }
@@ -939,7 +915,6 @@ function melody3(){
     const melody11 = new Tone.Part(setPlay, melodyList[2]).start("20m");
   }
   const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
-
 }
 
 function melody4(){
@@ -978,9 +953,7 @@ function melody4(){
   if(rhythmCategory[44].value == "on"){
     const melody11 = new Tone.Part(setPlay, melodyList[3]).start("20m");
   }
-
   const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
-
 }
 
 </script>
