@@ -48,12 +48,12 @@
 
 <div class="part">
   <select id="rhythm_0" class="rhythm">
-    <option value="rhythm1" selected>①</option>
-    <option value="rhythm2">②</option>
-    <option value="rhythm3">③</option>
-    <option value="rhythm4">④</option>
-    <option value="rhythm5">⑤</option>
-    <option value="rhythm6">⑥</option>
+    <option value="rhythm0" selected>①</option>
+    <option value="rhythm1">②</option>
+    <option value="rhythm2">③</option>
+    <option value="rhythm3">④</option>
+    <option value="rhythm4">⑤</option>
+    <option value="rhythm5">⑥</option>
   </select>
   
     <div class="item" id="first">
@@ -159,12 +159,12 @@
 
 <div class="part">
   <select id="rhythm_1" class="rhythm">
-    <option value="rhythm1" selected>①</option>
-    <option value="rhythm2">②</option>
-    <option value="rhythm3">③</option>
-    <option value="rhythm4">④</option>
-    <option value="rhythm5">⑤</option>
-    <option value="rhythm6">⑥</option>
+    <option value="rhythm0" selected>①</option>
+    <option value="rhythm1">②</option>
+    <option value="rhythm2">③</option>
+    <option value="rhythm3">④</option>
+    <option value="rhythm4">⑤</option>
+    <option value="rhythm5">⑥</option>
   </select>
   
   <div class="item" id="second">
@@ -274,12 +274,12 @@
 
 <div class="part">
   <select id="rhythm_2" class="rhythm">
-    <option value="rhythm1" selected>①</option>
-    <option value="rhythm2">②</option>
-    <option value="rhythm3">③</option>
-    <option value="rhythm4">④</option>
-    <option value="rhythm5">⑤</option>
-    <option value="rhythm6">⑥</option>
+    <option value="rhythm0" selected>①</option>
+    <option value="rhythm1">②</option>
+    <option value="rhythm2">③</option>
+    <option value="rhythm3">④</option>
+    <option value="rhythm4">⑤</option>
+    <option value="rhythm5">⑥</option>
   </select>
   
   <div class="item" id="third">
@@ -388,12 +388,12 @@
 
 <div class="part">
   <select id="rhythm_3" class="rhythm">
-    <option value="rhythm1" selected>①</option>
-    <option value="rhythm2">②</option>
-    <option value="rhythm3">③</option>
-    <option value="rhythm4">④</option>
-    <option value="rhythm5">⑤</option>
-    <option value="rhythm6">⑥</option>
+    <option value="rhythm0" selected>①</option>
+    <option value="rhythm1">②</option>
+    <option value="rhythm2">③</option>
+    <option value="rhythm3">④</option>
+    <option value="rhythm4">⑤</option>
+    <option value="rhythm5">⑥</option>
   </select>
   
   <div class="item" id="forth">
@@ -552,13 +552,21 @@ function Refresh(){
   Tone.Transport.cancel();
 }
 
+const rhythmLists = [
+[{time: "0:0", duration: "2n"},{time: "0:2", duration: "2n"},{time: "1:0", duration: "1m"}],
+[{time: "0:1", duration: "4n"},{time: "0:3", duration: "4n"},{time: "1:1", duration: "4n"},{time: "1:3", duration: "4n"}],
+[{time: "0:0", duration: "4n"},{time: "0:1", duration: "8n"},{time: "0:1.5", duration: "8n"},{time: "0:2", duration: "4n"},{time: "1:0", duration: "4n"},{time: "1:1", duration: "8n"},{time: "1:1.5", duration: "8n"},{time: "1:2", duration: "4n"}],
+[{time: "0:0", duration: "8n"},{time: "0:0.5", duration: "8n"},{time: "0:1", duration: "8n"},{time: "0:1.5", duration: "8n"},{time: "0:2", duration: "8n"},{time: "0:2.5", duration: "8n"},{time: "0:3", duration: "8n"},{time: "0:3.5", duration: "8n"},{time: "1:0", duration: "8n"},{time: "1:0.5", duration: "8n"},{time: "1:1", duration: "8n"},{time: "1:1.5", duration: "8n"},{time: "1:2", duration: "8n"},{time: "1:2.5", duration: "8n"},{time: "1:3", duration: "8n"},{time: "1:3.5", duration: "8n"}],
+[{time: "0:0", duration: "3n"},{time: "0:1.5", duration: "8n"},{time: "0:2", duration: "4n"},{time: "1:0", duration: "3n"},{time: "1:1.5", duration: "8n"},{time: "1:2", duration: "4n"}],
+[{time: "0:0", duration: "3n"},{time: "0:1.5", duration: "8n"},{time: "0:2", duration: "4n"},{time: "0:3", duration: "4n"},{time: "1:1", duration: "4n"},{time: "1:2", duration: "4n"}],
+[{time: "0:0", duration: "4n"}]
+];
 
-
-document.getElementById(`rhythm-0`).addEventListener("click", function() {
+  document.getElementById(`rhythm-0`).addEventListener("click", function() {
   changeTempo();
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody = new Tone.Part(setPlay, rhythmList1).start();
+  const melody = new Tone.Part(setPlay, rhythmLists[0]).start();
   Tone.Transport.start();
 }, false);
 
@@ -566,7 +574,7 @@ document.getElementById("rhythm-1").addEventListener("click", function() {
   changeTempo();
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody = new Tone.Part(setPlay, rhythmList2).start();
+  const melody = new Tone.Part(setPlay, rhythmLists[1]).start();
   Tone.Transport.start();
 }, false);
 
@@ -574,7 +582,7 @@ document.getElementById("rhythm-2").addEventListener("click", function() {
   changeTempo();
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody = new Tone.Part(setPlay, rhythmList3).start();
+  const melody = new Tone.Part(setPlay, rhythmLists[2]).start();
   Tone.Transport.start();
 }, false);
 
@@ -582,7 +590,7 @@ document.getElementById("rhythm-3").addEventListener("click", function() {
   changeTempo();
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody = new Tone.Part(setPlay, rhythmList4).start();
+  const melody = new Tone.Part(setPlay, rhythmLists[3]).start();
   Tone.Transport.start();
 }, false);
 
@@ -590,7 +598,7 @@ document.getElementById("rhythm-4").addEventListener("click", function() {
   changeTempo();
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody = new Tone.Part(setPlay, rhythmList5).start();
+  const melody = new Tone.Part(setPlay, rhythmLists[4]).start();
   Tone.Transport.start();
 }, false);
 
@@ -598,7 +606,7 @@ document.getElementById("rhythm-5").addEventListener("click", function() {
   changeTempo();
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
-  const melody = new Tone.Part(setPlay, rhythmList6).start();
+  const melody = new Tone.Part(setPlay, rhythmLists[5]).start();
   Tone.Transport.start();
 }, false);
 
@@ -637,7 +645,6 @@ function playMode(){
   }  
 }
 
-
 function changeTempo(){
     switch (tempo_category.value){
     case "tempo75":
@@ -658,71 +665,6 @@ if(tempo_category.value == "select"){
   tempo_category.value = "tempo95";    
 }
 
-  const rhythmList1 = [
-  {time: "0:0", duration: "2n"},
-  {time: "0:2", duration: "2n"},
-  {time: "1:0", duration: "1m"}
-  ]
-
-  const rhythmList2 = [
-  {time: "0:1", duration: "4n"},
-  {time: "0:3", duration: "4n"},
-  {time: "1:1", duration: "4n"},
-  {time: "1:3", duration: "4n"},
-  ]
-
-  const rhythmList3 = [
-  {time: "0:0", duration: "4n"},
-  {time: "0:1", duration: "8n"},
-  {time: "0:1.5", duration: "8n"},
-  {time: "0:2", duration: "4n"},
-  {time: "1:0", duration: "4n"},
-  {time: "1:1", duration: "8n"},
-  {time: "1:1.5", duration: "8n"},
-  {time: "1:2", duration: "4n"}
-  ]
-
-  const rhythmList4 = [
-  {time: "0:0", duration: "8n"},
-  {time: "0:0.5", duration: "8n"},
-  {time: "0:1", duration: "8n"},
-  {time: "0:1.5", duration: "8n"},
-  {time: "0:2", duration: "8n"},
-  {time: "0:2.5", duration: "8n"},
-  {time: "0:3", duration: "8n"},
-  {time: "0:3.5", duration: "8n"},
-  {time: "1:0", duration: "8n"},
-  {time: "1:0.5", duration: "8n"},
-  {time: "1:1", duration: "8n"},
-  {time: "1:1.5", duration: "8n"},
-  {time: "1:2", duration: "8n"},
-  {time: "1:2.5", duration: "8n"},
-  {time: "1:3", duration: "8n"},
-  {time: "1:3.5", duration: "8n"},
-  ]
-
-  const rhythmList5 = [
-  {time: "0:0", duration: "3n"},
-  {time: "0:1.5", duration: "8n"},
-  {time: "0:2", duration: "4n"},
-  {time: "1:0", duration: "3n"},
-  {time: "1:1.5", duration: "8n"},
-  {time: "1:2", duration: "4n"},
-  ]
-
-  const rhythmList6 = [
-  {time: "0:0", duration: "3n"},
-  {time: "0:1.5", duration: "8n"},
-  {time: "0:2", duration: "4n"},
-  {time: "0:3", duration: "4n"},
-  {time: "1:1", duration: "4n"},
-  {time: "1:2", duration: "4n"},
-  ]
-
-  const rhythmList7 = [
-  {time: "0:0", duration: "4n"}
-  ]
-
   const melodyList = new Array(4);
 
 for(i = 1; i < 45; i++){
@@ -736,23 +678,23 @@ for(i = 0; i < selectRhythmCategory.length; i++){
 function changeRhythm(){
   for(i = 0; i < selectRhythmCategory.length; i++){
     switch (selectRhythmCategory[i].value){
+        case "rhythm0":
+          melodyList[i] = rhythmLists[0];
+        break;
         case "rhythm1":
-          melodyList[i] = rhythmList1;
+          melodyList[i] = rhythmLists[1];
         break;
         case "rhythm2":
-          melodyList[i] = rhythmList2;
+          melodyList[i] = rhythmLists[2];
         break;
         case "rhythm3":
-          melodyList[i] = rhythmList3;
+          melodyList[i] = rhythmLists[3];
         break;
         case "rhythm4":
-          melodyList[i] = rhythmList4;
+          melodyList[i] = rhythmLists[4];
         break;
         case "rhythm5":
-          melodyList[i] = rhythmList5;
-        break;
-        case "rhythm6":
-          melodyList[i] = rhythmList6;
+          melodyList[i] = rhythmLists[5];
         break;
         default:  
     }  
@@ -798,7 +740,6 @@ for(i = 34; i < 45; i++){
 }
 }
 
-
 function melody1(){
   const synth = new Tone.Synth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time, 2.5);}
@@ -808,7 +749,7 @@ function melody1(){
     melodies[i] = new Tone.Part(setPlay, melodyList[0]).start(`${2*i}m`);
   }
 }
-  const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
+  const melody12 = new Tone.Part(setPlay, rhythmLists[6]).start("22m");
 }
 
 function melody2(){
@@ -820,7 +761,7 @@ function melody2(){
     melodies[i] = new Tone.Part(setPlay, melodyList[1]).start(`${2*i}m`);
   }
 }
-  const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
+  const melody12 = new Tone.Part(setPlay, rhythmLists[6]).start("22m");
 }
 
 
@@ -833,7 +774,7 @@ function melody3(){
     melodies[i] = new Tone.Part(setPlay, melodyList[2]).start(`${2*i}m`);
   }
 }
-  const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
+  const melody12 = new Tone.Part(setPlay, rhythmLists[6]).start("22m");
 }
 
 function melody4(){
@@ -845,7 +786,7 @@ function melody4(){
     melodies[i] = new Tone.Part(setPlay, melodyList[3]).start(`${2*i}m`);
   }
 }
-  const melody12 = new Tone.Part(setPlay, rhythmList7).start("22m");
+  const melody12 = new Tone.Part(setPlay, rhythmLists[6]).start("22m");
 }
 
 </script>
