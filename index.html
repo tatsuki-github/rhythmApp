@@ -436,10 +436,6 @@ document.getElementById("stop").addEventListener("click", function() {
     const play_mode = document.getElementById("play_mode");
     play_mode.onchange = Refresh;
     play_mode.onchange = changeDisplay;
-    const first = document.getElementById("first");
-    const second = document.getElementById("second");
-    const third = document.getElementById("third");
-    const forth = document.getElementById("forth");
 
 function Refresh(){
   Tone.Transport.stop();
@@ -556,47 +552,47 @@ function changeDisplay(){
   switch (play_mode.value){
     case "3personMode":
     allDisplayVisible();
-    forth.style.visibility = "hidden";
+    document.getElementById("forth").style.visibility = "hidden";
         break;
     case "4personMode":
     allDisplayVisible();
         break;
     case "1personMode1":
     allDisplayHidden();
-    first.style.visibility = "visible";
+    document.getElementById("first").style.visibility = "visible";
         break;
     case "1personMode2":
     allDisplayHidden();
-    second.style.visibility = "visible";
+    document.getElementById("second").style.visibility = "visible";
         break;
     case "1personMode3":
     allDisplayHidden();
-    third.style.visibility = "visible";
+    document.getElementById("third").style.visibility = "visible";
         break;
     case "1personMode4":
     allDisplayHidden();
-    forth.style.visibility = "visible";
+    document.getElementById("forth").style.visibility = "visible";
         break;
     default:
   }  
 }
 
 function allDisplayVisible(){
-  first.style.visibility = "visible";
-  second.style.visibility = "visible";
-  third.style.visibility = "visible";
-  forth.style.visibility = "visible";  
+  document.getElementById("first").style.visibility = "visible";
+  document.getElementById("second").style.visibility = "visible";
+  document.getElementById("third").style.visibility = "visible";
+  document.getElementById("forth").style.visibility = "visible";
 }
 
 function allDisplayHidden(){
-  first.style.visibility = "hidden";
-  second.style.visibility = "hidden";
-  third.style.visibility = "hidden";
-  forth.style.visibility = "hidden";
+  document.getElementById("first").style.visibility = "hidden";
+  document.getElementById("second").style.visibility = "hidden";
+  document.getElementById("third").style.visibility = "hidden";
+  document.getElementById("forth").style.visibility = "hidden";
 }
 
 allDisplayVisible();
-forth.style.visibility = "hidden";
+document.getElementById("forth").style.visibility = "hidden";
 
 const melodyList = [];
 
@@ -606,6 +602,10 @@ for(i = 0; i < 44; i++){
 
 for(i = 0; i < selectRhythmCategory.length; i++){
   selectRhythmCategory[i] = document.getElementById(`rhythm_${i}`);
+}
+
+for(i = 0; i < 44; i++){
+  rhythmCategory[i].onchange = colorChange;
 }
 
 function changeRhythm(){
@@ -634,9 +634,6 @@ function changeRhythm(){
   }
 }
 
-for(i = 0; i < 44; i++){
-  rhythmCategory[i].onchange = colorChange;
-}
 function colorChange(){
   for(i = 0; i < 11; i++){
   rhythmCategory[i].value == "on" ? rhythmCategory[i].style.backgroundColor = "lightcoral":rhythmCategory[i].style.backgroundColor = "white"
