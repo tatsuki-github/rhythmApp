@@ -14,9 +14,7 @@
       */
 </script>
 </head>
-
 <body>
-
 <div class="rhythmImg">
   <div>
     <img src="img/rhythm1.png" alt="" id="rhythm-0">
@@ -45,7 +43,6 @@
     <p>⑥</p>
   </div>
 </div>
-
 <div class="part">
     <div class="item" id="first">
       <select id="rhythm_0" class="rhythm">
@@ -136,7 +133,6 @@
       <img src="img/rhythm7.png" alt="" width="12%">
     </div>
 </div>
-
 <div class="part">
   <div class="item" id="second">
     <select id="rhythm_1" class="rhythm">
@@ -227,7 +223,6 @@
     <img src="img/rhythm7.png" alt="" width="12%">
   </div>
 </div>
-
 <div class="part">
   <div class="item" id="third">
     <select id="rhythm_2" class="rhythm">
@@ -318,7 +313,6 @@
     <img src="img/rhythm7.png" alt="" width="12%">
   </div>
 </div>
-
 <div class="part">
   <div class="item" id="forth">
     <select id="rhythm_3" class="rhythm">
@@ -409,7 +403,6 @@
     <img src="img/rhythm7.png" alt="" width="12%">
   </div>
 </div>
-
 <div class="buttons">
   <div class="tempo_and_piano">
     <select name="tempo_category" id="tempo_category">
@@ -429,38 +422,24 @@
   <button id = "play"></button>
   <button id = "stop"></button>
 </div>
-
 <script>
-window.addEventListener("load", function(){
-  display();
-}, false)
-
 document.getElementById("play").addEventListener("click", function() {
     playMode();
 }, false);
-
 document.getElementById("stop").addEventListener("click", function() {
     Refresh();
 }, false);
-
-
     const tempo_category = document.getElementById("tempo_category");
     tempo_category.onchange = Refresh;
-
     const rhythmCategory = [rhythm0,rhythm1,rhythm2,rhythm3,rhythm4,rhythm5,rhythm6,rhythm7,rhythm8,rhythm9,rhythm10,rhythm11,rhythm12,rhythm13,rhythm14,rhythm15,rhythm16,rhythm17,rhythm18,rhythm19,rhythm20,rhythm21,rhythm22,rhythm23,rhythm24,rhythm25,rhythm26,rhythm27,rhythm28,rhythm29,rhythm30,rhythm31,rhythm32,rhythm33,rhythm34,rhythm35,rhythm36,rhythm37,rhythm38,rhythm39,rhythm40,rhythm41,rhythm42,rhythm43];
-
     const selectRhythmCategory = [rhythm_0,rhythm_1,rhythm_2,rhythm_3];
-
     const play_mode = document.getElementById("play_mode");
     play_mode.onchange = Refresh;
     play_mode.onchange = changeDisplay;
-
     const first = document.getElementById("first");
     const second = document.getElementById("second");
     const third = document.getElementById("third");
     const forth = document.getElementById("forth");
-
-
 
 function Refresh(){
   Tone.Transport.stop();
@@ -525,12 +504,10 @@ document.getElementById("rhythm-5").addEventListener("click", function() {
   Tone.Transport.start();
 }, false);
 
-
 function playMode(){
   changeTempo();
   changeRhythm();
   Tone.Transport.start();
-
   switch (play_mode.value){
     case "3personMode":
       melody1();
@@ -618,12 +595,10 @@ function allDisplayHidden(){
   forth.style.visibility = "hidden";
 }
 
-function display(){
-  allDisplayVisible();
-  forth.style.visibility = "hidden";
-}
+allDisplayVisible();
+forth.style.visibility = "hidden";
 
-const melodyList = new Array(4);
+const melodyList = [];
 
 for(i = 0; i < 44; i++){
   rhythmCategory[i] = document.getElementById(`rhythm${i}`);
@@ -662,39 +637,18 @@ function changeRhythm(){
 for(i = 0; i < 44; i++){
   rhythmCategory[i].onchange = colorChange;
 }
-
 function colorChange(){
   for(i = 0; i < 11; i++){
-  if(rhythmCategory[i].value == "on"){
-    rhythmCategory[i].style.backgroundColor = "lightcoral"
-  }
-  else{
-    rhythmCategory[i].style.backgroundColor = "white"
-  }
+  rhythmCategory[i].value == "on" ? rhythmCategory[i].style.backgroundColor = "lightcoral":rhythmCategory[i].style.backgroundColor = "white"
 }
 for(i = 11; i < 22; i++){
-  if(rhythmCategory[i].value == "on"){
-    rhythmCategory[i].style.backgroundColor = "lightskyblue"
-  }
-  else{
-    rhythmCategory[i].style.backgroundColor = "white"
-  }
+  rhythmCategory[i].value == "on" ? rhythmCategory[i].style.backgroundColor = "lightskyblue":rhythmCategory[i].style.backgroundColor = "white"
 }
 for(i = 22; i < 33; i++){
-  if(rhythmCategory[i].value == "on"){
-    rhythmCategory[i].style.backgroundColor = "yellow"
-  }
-  else{
-    rhythmCategory[i].style.backgroundColor = "white"
-  }
+  rhythmCategory[i].value == "on" ? rhythmCategory[i].style.backgroundColor = "yellow":rhythmCategory[i].style.backgroundColor = "white"
 }
 for(i = 33; i < 44; i++){
-  if(rhythmCategory[i].value == "on"){
-    rhythmCategory[i].style.backgroundColor = "lightgreen"
-  }
-  else{
-    rhythmCategory[i].style.backgroundColor = "white"
-  }
+  rhythmCategory[i].value == "on" ? rhythmCategory[i].style.backgroundColor = "lightgreen":rhythmCategory[i].style.backgroundColor = "white"
 }
 }
 
@@ -703,9 +657,7 @@ function melody1(){
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time, 2.5);}
   const melodies = new Array(11); 
   for(i = 0; i < melodies.length; i++){
-    if(rhythmCategory[i].value == "on"){
-    melodies[i] = new Tone.Part(setPlay, melodyList[0]).start(`${2*i}m`);
-  }
+    rhythmCategory[i].value == "on" ? melodies[i] = new Tone.Part(setPlay, melodyList[0]).start(`${2*i}m`):false
 }
   const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start("22m");
 }
@@ -715,22 +667,17 @@ function melody2(){
   function setPlay(time, note) {synth.triggerAttackRelease("G4", note.duration, time, 2.5);}
   const melodies = new Array(11); 
   for(i = 0; i < melodies.length; i++){
-    if(rhythmCategory[i+11].value == "on"){
-    melodies[i] = new Tone.Part(setPlay, melodyList[1]).start(`${2*i}m`);
-  }
+    rhythmCategory[i+11].value == "on" ? melodies[i] = new Tone.Part(setPlay, melodyList[1]).start(`${2*i}m`):false
 }
   const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start("22m");
 }
-
 
 function melody3(){
   const synth = new Tone.MetalSynth().toDestination();
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
   const melodies = new Array(11); 
   for(i = 0; i < melodies.length; i++){
-    if(rhythmCategory[i+22].value == "on"){
-    melodies[i] = new Tone.Part(setPlay, melodyList[2]).start(`${2*i}m`);
-  }
+    rhythmCategory[i+22].value == "on" ? melodies[i] = new Tone.Part(setPlay, melodyList[2]).start(`${2*i}m`):false
 }
   const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start("22m");
 }
@@ -740,13 +687,10 @@ function melody4(){
   function setPlay(time, note) {synth.triggerAttackRelease("E4", note.duration, time);}
   const melodies = new Array(11); 
   for(i = 0; i < melodies.length; i++){
-    if(rhythmCategory[i+33].value == "on"){
-    melodies[i] = new Tone.Part(setPlay, melodyList[3]).start(`${2*i}m`);
-  }
+    rhythmCategory[i+33].value == "on" ? melodies[i] = new Tone.Part(setPlay, melodyList[3]).start(`${2*i}m`):false
 }
   const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start("22m");
 }
-
 </script>
 <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
