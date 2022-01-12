@@ -31,7 +31,7 @@ select {
 #rhythm_2,
 #rhythm_3 {
   width: 4rem;
-  height: 2rem;
+  height: 1.8rem;
 }
 
 .item select {
@@ -92,7 +92,7 @@ select {
 .buttons {
   width: 64%;
   display: flex;
-  margin: 1.6rem auto 0 auto;
+  margin: 1rem auto 0 auto;
   justify-content: space-around;
 }
 
