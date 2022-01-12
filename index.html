@@ -43,16 +43,18 @@
     <p>⑥</p>
   </div>
 </div>
-<div class="part">
-    <div class="item" id="first">
-      <select id="rhythm_0" class="rhythm">
-        <option value="rhythm0" selected>①</option>
-        <option value="rhythm1">②</option>
-        <option value="rhythm2">③</option>
-        <option value="rhythm3">④</option>
-        <option value="rhythm4">⑤</option>
-        <option value="rhythm5">⑥</option>
-      </select>
+<div class="part" id="first">
+  <p id="rhythmImg0"><img src="img/rhythm1.png" width="200px">
+  <select id="rhythm_0" class="rhythm">
+    <option value="rhythm0" selected>①</option>
+    <option value="rhythm1">②</option>
+    <option value="rhythm2">③</option>
+    <option value="rhythm3">④</option>
+    <option value="rhythm4">⑤</option>
+    <option value="rhythm5">⑥</option>
+  </select>
+  </p>
+    <div class="item">
       <div class="beat">
         <p>1</p>
         <select id="rhythm0" class="rhythm">
@@ -133,16 +135,18 @@
       <img src="img/rhythm7.png" alt="" width="12%">
     </div>
 </div>
-<div class="part">
-  <div class="item" id="second">
-    <select id="rhythm_1" class="rhythm">
-      <option value="rhythm0" selected>①</option>
-      <option value="rhythm1">②</option>
-      <option value="rhythm2">③</option>
-      <option value="rhythm3">④</option>
-      <option value="rhythm4">⑤</option>
-      <option value="rhythm5">⑥</option>
-    </select>
+<div class="part" id="second">
+  <p id="rhythmImg1"><img src="img/rhythm1.png" width="200px">
+  <select id="rhythm_1" class="rhythm">
+    <option value="rhythm0" selected>①</option>
+    <option value="rhythm1">②</option>
+    <option value="rhythm2">③</option>
+    <option value="rhythm3">④</option>
+    <option value="rhythm4">⑤</option>
+    <option value="rhythm5">⑥</option>
+  </select>
+  </p>
+  <div class="item">
     <div class="beat">
       <p>1</p>
       <select  id="rhythm11" class="rhythm">
@@ -223,16 +227,18 @@
     <img src="img/rhythm7.png" alt="" width="12%">
   </div>
 </div>
-<div class="part">
-  <div class="item" id="third">
-    <select id="rhythm_2" class="rhythm">
-      <option value="rhythm0" selected>①</option>
-      <option value="rhythm1">②</option>
-      <option value="rhythm2">③</option>
-      <option value="rhythm3">④</option>
-      <option value="rhythm4">⑤</option>
-      <option value="rhythm5">⑥</option>
-    </select>
+<div class="part" id="third">
+  <p id="rhythmImg2"><img src="img/rhythm1.png" width="200px">
+  <select id="rhythm_2" class="rhythm">
+    <option value="rhythm0" selected>①</option>
+    <option value="rhythm1">②</option>
+    <option value="rhythm2">③</option>
+    <option value="rhythm3">④</option>
+    <option value="rhythm4">⑤</option>
+    <option value="rhythm5">⑥</option>
+  </select>
+  </p>
+  <div class="item">
     <div class="beat">
       <p>1</p>
       <select  id="rhythm22" class="rhythm">
@@ -313,16 +319,18 @@
     <img src="img/rhythm7.png" alt="" width="12%">
   </div>
 </div>
-<div class="part">
-  <div class="item" id="forth">
-    <select id="rhythm_3" class="rhythm">
-      <option value="rhythm0" selected>①</option>
-      <option value="rhythm1">②</option>
-      <option value="rhythm2">③</option>
-      <option value="rhythm3">④</option>
-      <option value="rhythm4">⑤</option>
-      <option value="rhythm5">⑥</option>
-    </select>
+<div class="part" id="forth">
+  <p id="rhythmImg3"><img src="img/rhythm1.png" width="200px">
+  <select id="rhythm_3" class="rhythm">
+    <option value="rhythm0" selected>①</option>
+    <option value="rhythm1">②</option>
+    <option value="rhythm2">③</option>
+    <option value="rhythm3">④</option>
+    <option value="rhythm4">⑤</option>
+    <option value="rhythm5">⑥</option>
+  </select>
+  </p>  
+  <div class="item">
     <div class="beat">
       <p>1</p>
       <select  id="rhythm33" class="rhythm">
@@ -433,6 +441,10 @@ document.getElementById("stop").addEventListener("click", function() {
     tempo_category.onchange = Refresh;
     const rhythmCategory = [rhythm0,rhythm1,rhythm2,rhythm3,rhythm4,rhythm5,rhythm6,rhythm7,rhythm8,rhythm9,rhythm10,rhythm11,rhythm12,rhythm13,rhythm14,rhythm15,rhythm16,rhythm17,rhythm18,rhythm19,rhythm20,rhythm21,rhythm22,rhythm23,rhythm24,rhythm25,rhythm26,rhythm27,rhythm28,rhythm29,rhythm30,rhythm31,rhythm32,rhythm33,rhythm34,rhythm35,rhythm36,rhythm37,rhythm38,rhythm39,rhythm40,rhythm41,rhythm42,rhythm43];
     const selectRhythmCategory = [rhythm_0,rhythm_1,rhythm_2,rhythm_3];
+    rhythm_0.onchange = changeRhythm;
+    rhythm_1.onchange = changeRhythm;
+    rhythm_2.onchange = changeRhythm;
+    rhythm_3.onchange = changeRhythm;
     const play_mode = document.getElementById("play_mode");
     play_mode.onchange = Refresh;
     play_mode.onchange = changeDisplay;
@@ -499,6 +511,26 @@ document.getElementById("rhythm-5").addEventListener("click", function() {
   const melody = new Tone.Part(setPlay, rhythmLists[5]).start();
   Tone.Transport.start();
 }, false);
+
+/*
+let setImgFunc = (function(){
+    let imgList = {rhythm1:"img/rhythm1.png", rhythm2:"img/rhythm2.png", rhythm3:"img/rhythm3.png", rhythm4:"img/rhythm4.png", rhythm5:"img/rhythm5.png", rhythm6:"img/rhythm6.png"};
+    let num = 1;
+    let imgPath;
+    return function() {
+      num++;
+      imgPath = imgList['rhythm'+num];
+      testImg = document.querySelector('#rhythmImg img').src = imgPath;
+      if (num === 6) {
+        num = 0;
+      } 
+    }
+  })();
+
+  document.getElementById('rhythm_0').addEventListener('click', function(){
+    setImgFunc();
+  });
+*/
 
 function playMode(){
   changeTempo();
@@ -613,21 +645,27 @@ function changeRhythm(){
     switch (selectRhythmCategory[i].value){
         case "rhythm0":
           melodyList[i] = rhythmLists[0];
+          document.querySelector(`#rhythmImg${i} img`).src = "img/rhythm1.png";
         break;
         case "rhythm1":
           melodyList[i] = rhythmLists[1];
+          document.querySelector(`#rhythmImg${i} img`).src = "img/rhythm2.png";
         break;
         case "rhythm2":
           melodyList[i] = rhythmLists[2];
+          document.querySelector(`#rhythmImg${i} img`).src = "img/rhythm3.png";
         break;
         case "rhythm3":
           melodyList[i] = rhythmLists[3];
+          document.querySelector(`#rhythmImg${i} img`).src = "img/rhythm4.png";
         break;
         case "rhythm4":
           melodyList[i] = rhythmLists[4];
+          document.querySelector(`#rhythmImg${i} img`).src = "img/rhythm5.png";
         break;
         case "rhythm5":
           melodyList[i] = rhythmLists[5];
+          document.querySelector(`#rhythmImg${i} img`).src = "img/rhythm6.png";
         break;
         default:  
     }  
