@@ -42,8 +42,7 @@ select {
 
 .item {
   display: flex;
-  margin: 16px 0 0 0;
-  padding: 0.2rem;
+  margin: 8px 0 0 0;
   justify-content: space-around;
 }
 
@@ -64,14 +63,14 @@ select {
 }
 
 .item img {
-  margin: 0.5rem 0 0 0;
+  margin: 0;
 }
 
 .part {
   display: flex;
   width: 96%;
   height: auto;
-  margin: 16px auto 0 auto;
+  margin: 8px auto 0 auto;
 }
 
 .beat {
