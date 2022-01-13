@@ -30,9 +30,16 @@ select {
 #rhythm_1,
 #rhythm_2,
 #rhythm_3 {
-  width: 4rem;
+  width: 2.5rem;
   height: 1.8rem;
   margin: 16px 1px 1px 1px;
+}
+
+#rhythmImg0,
+#rhythmImg1,
+#rhythmImg2,
+#rhythmImg3 {
+  width: 200px;
 }
 
 .item select {
@@ -42,7 +49,7 @@ select {
 
 .item {
   display: flex;
-  margin: 8px 0 0 0;
+  margin: 4px 0 4px 4px;
   justify-content: space-around;
 }
 
@@ -79,6 +86,10 @@ select {
 
 .beat p {
   margin: 0;
+}
+
+.lastRhythmImg {
+  width: 100px;
 }
 
 #tempo_category {
