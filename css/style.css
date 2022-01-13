@@ -6,24 +6,56 @@ body {
   padding: 0;
   text-align: center;
   list-style: none;
-}
-
-.abcjs-staff path {
-  stroke: white;
-}
-
-.abcjs-staff-extra.abcjs-clef {
-  display: none;
+  font-weight: bold;
 }
 
 p {
-  font-weight: bold;
   font-size: 12px;
+  margin: 0;
 }
 
 select {
   color: #000;
   font-weight: bold;
+}
+
+.rhythmImg {
+  display: flex;
+  width: 100%;
+  margin: 16px auto 0 auto;
+}
+
+.rhythmImg img {
+  width: 88%;
+  border: 0.1rem solid black;
+}
+
+.rhythmImg p {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+
+.part {
+  display: flex;
+  width: 96%;
+  margin: 8px auto 0 auto;
+  justify-content: space-around;
+}
+
+#first {
+  border: 0.2rem solid lightcoral;
+}
+
+#second {
+  border: 0.2rem solid lightskyblue;
+}
+
+#third {
+  border: 0.2rem solid yellow;
+}
+
+#forth {
+  border: 0.2rem solid lightgreen;
 }
 
 #rhythm_0,
@@ -53,40 +85,8 @@ select {
   margin: 4px 0 4px 4px;
 }
 
-#first {
-  border: 0.2rem solid lightcoral;
-}
-
-#second {
-  border: 0.2rem solid lightskyblue;
-}
-
-#third {
-  border: 0.2rem solid yellow;
-}
-
-#forth {
-  border: 0.2rem solid lightgreen;
-}
-
-.item img {
-  margin: 0;
-}
-
-.part {
-  display: flex;
-  width: 96%;
-  height: auto;
-  margin: 8px auto 0 auto;
-  justify-content: space-around;
-}
-
 .beat {
   display: block;
-}
-
-.beat p {
-  margin: 0;
 }
 
 .lastRhythmImg {
@@ -173,20 +173,4 @@ button {
 
 #stop::after {
   left: 55%;
-}
-
-.rhythmImg {
-  display: flex;
-  width: 100%;
-  margin: 16px auto 0 auto;
-}
-
-.rhythmImg img {
-  width: 88%;
-  border: 0.1rem solid black;
-}
-
-.rhythmImg p {
-  margin: 0 0 8px 0;
-  font-size: 16px;
 }
