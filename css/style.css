@@ -45,6 +45,7 @@ select {
 .item select {
   width: 3.5rem;
   height: 2.5rem;
+  margin: 0 0 0 1px;
 }
 
 .item {
