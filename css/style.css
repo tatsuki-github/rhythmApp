@@ -50,7 +50,6 @@ select {
 .item {
   display: flex;
   margin: 4px 0 4px 4px;
-  justify-content: space-around;
 }
 
 #first {
@@ -78,6 +77,7 @@ select {
   width: 96%;
   height: auto;
   margin: 8px auto 0 auto;
+  justify-content: space-around;
 }
 
 .beat {
