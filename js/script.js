@@ -3,6 +3,7 @@ document.getElementById('play').addEventListener('click', function() {
 }, false);
 document.getElementById('stop').addEventListener('click', function() {
   Refresh();
+  btnAble();
 }, false);
   const tempo_category = document.getElementById('tempo_category');
   tempo_category.onchange = Refresh;
@@ -80,6 +81,17 @@ const melody = new Tone.Part(setPlay, rhythmLists[5]).start();
 Tone.Transport.start();
 }, false);
 
+function btnDisable(){ 
+  document.getElementById('play').disabled = true;
+  document.getElementById('play').style.backgroundColor = '#C0C0C0'
+  clearInterval(statusDis);
+  }
+  function btnAble(){  
+  document.getElementById('play').disabled = false;
+  document.getElementById('play').style.backgroundColor = '#ff7e00'
+  clearInterval(statusAble);
+  Refresh();
+  }
 function playMode(){
 changeTempo();
 changeRhythm();
@@ -114,18 +126,23 @@ switch (play_mode.value){
 }
 
 function changeTempo(){
+  statusDis  = setInterval(btnDisable , 0); 
   switch (tempo_category.value){
   case 'tempo75':
   Tone.Transport.bpm.value = 75;
+  statusAble = setInterval(btnAble , 75000); 
       break;
   case 'tempo95':
   Tone.Transport.bpm.value = 95;
+  statusAble = setInterval(btnAble , 60000); 
       break;
   case 'tempo115':
   Tone.Transport.bpm.value = 115;
+  statusAble = setInterval(btnAble , 50000); 
       break;
   default:  
   Tone.Transport.bpm.value = 95;
+  statusAble = setInterval(btnAble , 60000); 
 }  
 }
 
