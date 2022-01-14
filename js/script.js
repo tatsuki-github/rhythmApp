@@ -270,7 +270,7 @@ const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
 const tambourine  = 'https://tatsuki-github.github.io/rhythmApp/audio/tambourine.mp3';
 function melody4(){
 const synth = new Tone.Sampler({E4:tambourine}).toDestination();
-function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
+function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time, 2.5);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
   rhythmCategory[i+33].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[3]).start(`${2*i+1}m`):false
