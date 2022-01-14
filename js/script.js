@@ -28,7 +28,8 @@ const rhythmLists = [
 [{time: '0:0', duration: '8n'},{time: '0:0.5', duration: '8n'},{time: '0:1', duration: '8n'},{time: '0:1.5', duration: '8n'},{time: '0:2', duration: '8n'},{time: '0:2.5', duration: '8n'},{time: '0:3', duration: '8n'},{time: '0:3.5', duration: '8n'},{time: '1:0', duration: '8n'},{time: '1:0.5', duration: '8n'},{time: '1:1', duration: '8n'},{time: '1:1.5', duration: '8n'},{time: '1:2', duration: '8n'},{time: '1:2.5', duration: '8n'},{time: '1:3', duration: '8n'},{time: '1:3.5', duration: '8n'}],
 [{time: '0:0', duration: '3n'},{time: '0:1.5', duration: '8n'},{time: '0:2', duration: '4n'},{time: '1:0', duration: '3n'},{time: '1:1.5', duration: '8n'},{time: '1:2', duration: '4n'}],
 [{time: '0:0', duration: '3n'},{time: '0:1.5', duration: '8n'},{time: '0:2', duration: '4n'},{time: '0:3', duration: '4n'},{time: '1:1', duration: '4n'},{time: '1:2', duration: '4n'}],
-[{time: '0:0', duration: '4n'}]
+[{time: '0:0', duration: '4n'}],
+[{note:'A4', time: '0:0', duration: '4n'},{note:'A4', time: '0:1', duration: '4n'},{note:'A4', time: '0:2', duration: '4n'},{note:'A5', time: '0:3', duration: '4n'}]
 ];
 
 document.getElementById('rhythm-0').addEventListener('click', function() {
@@ -82,6 +83,7 @@ Tone.Transport.start();
 function playMode(){
 changeTempo();
 changeRhythm();
+metronome();
 Tone.Transport.start();
 switch (play_mode.value){
   case '3personMode':
@@ -265,8 +267,9 @@ for(i = 0; i < melodies.length; i++){
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
 }
 
+const tambourine  = 'https://tatsuki-github.github.io/rhythmApp/audio/tambourine.mp3';
 function melody4(){
-const synth = new Tone.MembraneSynth().toDestination();
+const synth = new Tone.Sampler({E4:tambourine}).toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
@@ -274,3 +277,9 @@ for(i = 0; i < melodies.length; i++){
 }
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
 }
+
+function metronome(){
+  const synth = new Tone.Synth().toDestination();
+  function setPlay(time, note) {synth.triggerAttackRelease(note.note, note.duration, time);}
+  const metronome = new Tone.Part(setPlay, rhythmLists[7]).start();
+  }
