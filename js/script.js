@@ -239,7 +239,7 @@ const synth = new Tone.Synth().toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time, 2.5);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
-  rhythmCategory[i].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[0]).start(`${2*i}m`):false
+  rhythmCategory[i].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[0]).start(`${2*i+1}m`):false
 }
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('22m');
 }
@@ -249,17 +249,17 @@ const synth = new Tone.Synth().toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('G4', note.duration, time, 2.5);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
-  rhythmCategory[i+11].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[1]).start(`${2*i}m`):false
+  rhythmCategory[i+11].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[1]).start(`${2*i+1}m`):false
 }
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('22m');
 }
 
 function melody3(){
-const synth = new Tone.MetalSynth().toDestination();
-function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
+const synth = new Tone.Sampler({E4:'https://tatsuki-github.github.io/rhythmApp/audio/clave.wav'}).toDestination();
+function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time, 2.5);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
-  rhythmCategory[i+22].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[2]).start(`${2*i}m`):false
+  rhythmCategory[i+22].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[2]).start(`${2*i+1}m`):false
 }
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('22m');
 }
@@ -269,7 +269,7 @@ const synth = new Tone.MembraneSynth().toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
-  rhythmCategory[i+33].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[3]).start(`${2*i}m`):false
+  rhythmCategory[i+33].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[3]).start(`${2*i+1}m`):false
 }
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('22m');
 }
