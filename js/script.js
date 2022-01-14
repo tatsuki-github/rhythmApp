@@ -82,7 +82,7 @@ Tone.Transport.start();
 function playMode(){
 changeTempo();
 changeRhythm();
-Tone.Transport.start();
+Tone.Transport.start(1);
 switch (play_mode.value){
   case '3personMode':
     melody1();
@@ -236,7 +236,8 @@ rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'lig
 
 function melody1(){
 const synth = new Tone.Synth().toDestination();
-function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time, 2.5);}
+synth.autostart = true;
+function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time, 2);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
   rhythmCategory[i].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[0]).start(`${2*i}m`):false
@@ -246,7 +247,7 @@ const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('22m');
 
 function melody2(){
 const synth = new Tone.Synth().toDestination();
-function setPlay(time, note) {synth.triggerAttackRelease('G4', note.duration, time, 2.5);}
+function setPlay(time, note) {synth.triggerAttackRelease('G4', note.duration, time, 2);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
   rhythmCategory[i+11].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[1]).start(`${2*i}m`):false
@@ -255,8 +256,8 @@ const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('22m');
 }
 
 function melody3(){
-const synth = new Tone.MetalSynth().toDestination();
-function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
+const synth = new Tone.Sampler({ E4: '../audio/clave.wav' }).toDestination();
+function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time, 3);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
   rhythmCategory[i+22].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[2]).start(`${2*i}m`):false
