@@ -1,3 +1,4 @@
+'use strict';
 document.documentElement.addEventListener('mousedown', () => {
   if (Tone.context.state !== 'running') Tone.context.resume();
 });
