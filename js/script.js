@@ -256,7 +256,8 @@ const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('22m');
 }
 
 function melody3(){
-const synth = new Tone.Sampler({ E4: '../audio/' + 'clave.wav' }).toDestination();
+const synth = new Tone.MetalSynth().toDestination();
+//const synth = new Tone.Sampler({ E4: '../audio/' + 'clave.wav' }).toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time, 3);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
