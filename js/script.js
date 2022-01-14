@@ -82,7 +82,7 @@ Tone.Transport.start();
 function playMode(){
 changeTempo();
 changeRhythm();
-Tone.Transport.start(1);
+Tone.Transport.start();
 switch (play_mode.value){
   case '3personMode':
     melody1();
