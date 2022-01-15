@@ -1,6 +1,6 @@
-function doReloadWithCache() {
+window.addEventListener("load", function(){
   window.location.reload(false);
-}
+}, false)
 document.getElementById('play').addEventListener('click', function() {
   playMode();
 }, false);
