@@ -83,12 +83,12 @@ Tone.Transport.start();
 
 function btnDisable(){ 
   document.getElementById('play').disabled = true;
-  document.getElementById('play').style.backgroundColor = '#C0C0C0'
+  document.getElementById('play').style.backgroundColor = '#C0C0C0';
   clearInterval(statusDis);
   }
   function btnAble(){  
   document.getElementById('play').disabled = false;
-  document.getElementById('play').style.backgroundColor = '#ff7e00'
+  document.getElementById('play').style.backgroundColor = '#ff7e00';
   clearInterval(statusAble);
   Refresh();
   }
@@ -240,16 +240,16 @@ for(i = 0; i < selectRhythmCategory.length; i++){
 
 function colorChange(){
 for(i = 0; i < rhythmCategory.length/4; i++){
-rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'lightcoral':rhythmCategory[i].style.backgroundColor = 'white'
+rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'lightcoral':rhythmCategory[i].style.backgroundColor = 'white';
 }
 for(i = 11; i < rhythmCategory.length/4*2; i++){
-rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'lightskyblue':rhythmCategory[i].style.backgroundColor = 'white'
+rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'lightskyblue':rhythmCategory[i].style.backgroundColor = 'white';
 }
 for(i = 22; i < rhythmCategory.length/4*3; i++){
-rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'yellow':rhythmCategory[i].style.backgroundColor = 'white'
+rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'yellow':rhythmCategory[i].style.backgroundColor = 'white';
 }
 for(i = 33; i < rhythmCategory.length/4*4; i++){
-rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'lightgreen':rhythmCategory[i].style.backgroundColor = 'white'
+rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'lightgreen':rhythmCategory[i].style.backgroundColor = 'white';
 }
 }
 
