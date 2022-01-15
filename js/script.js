@@ -1,9 +1,6 @@
 function doReloadWithCache() {
   window.location.reload(false);
 }
-window.addEventListener('load', function () {
-  setTimeout(doReloadWithCache, 1000);
-});
 document.getElementById('play').addEventListener('click', function() {
   playMode();
 }, false);
