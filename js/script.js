@@ -1,5 +1,6 @@
 window.addEventListener("load", function(){
   colorChange();
+  changeRhythm();
 }, false)
 document.getElementById('play').addEventListener('click', function() {
   playMode();
