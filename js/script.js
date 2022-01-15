@@ -1,3 +1,6 @@
+window.addEventListener("load", function(){
+  colorChange();
+}, false)
 document.getElementById('play').addEventListener('click', function() {
   playMode();
 }, false);
