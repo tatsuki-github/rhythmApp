@@ -170,8 +170,8 @@ button {
   position: absolute;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
-  width: 0.25rem;
-  height: 1rem;
+  width: 0.4vw;
+  height: 1.5vw;
   box-sizing: border-box;
   background-color: currentColor;
   content: "";
