@@ -38,7 +38,7 @@ select {
 
 .numbers {
   display: flex;
-  margin: 0 auto 0 35%;
+  margin: 0 auto 0 37%;
 }
 
 .numbers p {
@@ -48,7 +48,7 @@ select {
 .part {
   display: flex;
   margin: 0 2% 0 2%;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 #first {
@@ -92,7 +92,7 @@ select {
 .item {
   display: flex;
   margin: 4px 0 4px 4px;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .beat {
@@ -115,7 +115,7 @@ select {
   width: 64%;
   display: flex;
   margin: 1rem auto 0 auto;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 button {
