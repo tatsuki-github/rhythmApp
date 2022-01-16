@@ -115,7 +115,7 @@ select {
 .buttons {
   width: 64vw;
   display: flex;
-  margin: 1rem auto 0 auto;
+  margin: 1vw auto 0 auto;
   justify-content: space-between;
 }
 
@@ -146,13 +146,13 @@ button {
 
 #play::before {
   position: absolute;
-  top: 50%;
-  left: 40%;
+  top: 2vw;
+  left: 3.2vw;
   transform: translateY(-50%);
   width: 0;
   height: 0;
   border: 1vw solid transparent;
-  border-left: 0.5em solid currentColor;
+  border-left: 1.8vw solid currentColor;
   box-sizing: border-box;
   content: "";
 }
@@ -168,7 +168,7 @@ button {
 #stop::before,
 #stop::after {
   position: absolute;
-  top: 50%;
+  top: 2vw;
   transform: translateX(-50%) translateY(-50%);
   width: 0.4vw;
   height: 1.5vw;
@@ -178,9 +178,9 @@ button {
 }
 
 #stop::before {
-  left: 45%;
+  left: 4.5vw;
 }
 
 #stop::after {
-  left: 55%;
+  left: 3.5vw;
 }
