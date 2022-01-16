@@ -1,7 +1,7 @@
 html,
 body {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -21,12 +21,12 @@ select {
 
 .rhythmImg {
   display: flex;
-  width: 100%;
+  width: 100vw;
   margin: 16px 0 16px 0;
 }
 
 .rhythmImg img {
-  width: 28%;
+  width: 28vw;
   border: 0.1rem solid black;
   margin: 0 auto 0 0;
 }
@@ -38,20 +38,20 @@ select {
 
 .numbers {
   display: flex;
-  margin: 0 auto 0 18rem;
+  margin: 0 auto 0 25vw;
 }
 
 #numberLast {
-  margin: 0 0 0 12px;
+  margin: 0 0 0 2.5vw;
 }
 
 .numbers p {
-  width: 3.5rem;
+  width: 5.5vw;
 }
 
 .part {
   display: flex;
-  margin: 0 2rem;
+  margin: 0 1vw;
 }
 
 #first {
@@ -74,8 +74,8 @@ select {
 #rhythm_1,
 #rhythm_2,
 #rhythm_3 {
-  width: 2.8rem;
-  height: 2rem;
+  width: 4vw;
+  height: 3vw;
   margin: 1px;
 }
 
@@ -83,18 +83,17 @@ select {
 #rhythmImg1,
 #rhythmImg2,
 #rhythmImg3 {
-  width: 12rem;
+  width: 20vw;
 }
 
 .item select {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 5.5vw;
+  height: 5.5vw;
   font-size: 16px;
 }
 
 .item {
   display: flex;
-  margin: 4px 0 4px 4px;
   justify-content: space-between;
 }
 
@@ -103,7 +102,7 @@ select {
 }
 
 .lastRhythmImg {
-  width: 6rem;
+  width: 10vw;
 }
 
 #tempo_category {
