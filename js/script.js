@@ -47,7 +47,6 @@ Tone.Transport.start();
 
 document.getElementById('rhythm-1').addEventListener('click', function() {
 changeTempo();
-statusAble = setInterval(btnAble , 0); 
 const synth = new Tone.Synth().toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
 const melody = new Tone.Part(setPlay, rhythmLists[1]).start();
@@ -56,7 +55,6 @@ Tone.Transport.start();
 
 document.getElementById('rhythm-2').addEventListener('click', function() {
 changeTempo();
-statusAble = setInterval(btnAble , 0); 
 const synth = new Tone.Synth().toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
 const melody = new Tone.Part(setPlay, rhythmLists[2]).start();
@@ -65,7 +63,6 @@ Tone.Transport.start();
 
 document.getElementById('rhythm-3').addEventListener('click', function() {
 changeTempo();
-statusAble = setInterval(btnAble , 0); 
 const synth = new Tone.Synth().toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
 const melody = new Tone.Part(setPlay, rhythmLists[3]).start();
@@ -74,7 +71,6 @@ Tone.Transport.start();
 
 document.getElementById('rhythm-4').addEventListener('click', function() {
 changeTempo();
-statusAble = setInterval(btnAble , 0); 
 const synth = new Tone.Synth().toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
 const melody = new Tone.Part(setPlay, rhythmLists[4]).start();
@@ -83,7 +79,6 @@ Tone.Transport.start();
 
 document.getElementById('rhythm-5').addEventListener('click', function() {
 changeTempo();
-statusAble = setInterval(btnAble , 0); 
 const synth = new Tone.Synth().toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
 const melody = new Tone.Part(setPlay, rhythmLists[5]).start();
