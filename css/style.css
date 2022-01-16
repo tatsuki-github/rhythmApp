@@ -22,23 +22,30 @@ select {
 .rhythmImg {
   display: flex;
   width: 100%;
-  margin: 16px auto 0 auto;
+  margin: 16px 0 16px 0;
 }
 
 .rhythmImg img {
-  width: 88%;
+  width: 28%;
   border: 0.1rem solid black;
+  margin: 0 auto 0 0;
 }
 
 .rhythmImg p {
-  margin: 0 0 8px 0;
+  margin: 0 0 8px auto;
   font-size: 16px;
+}
+
+.numbers {
+  display: flex;
+  margin: 0 18px 0 280px;
+  justify-content: space-around;
 }
 
 .part {
   display: flex;
   width: 96%;
-  margin: 8px auto 0 auto;
+  margin: 0 auto 0 auto;
   justify-content: space-around;
 }
 
@@ -51,7 +58,7 @@ select {
 }
 
 #third {
-  border: 0.2rem solid yellow;
+  border: 0.2rem solid #ffbb00;
 }
 
 #forth {

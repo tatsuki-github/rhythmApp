@@ -32,7 +32,7 @@ const rhythmLists = [
 [{time: '0:0', duration: '4n'},{time: '0:1', duration: '8n'},{time: '0:1.5', duration: '8n'},{time: '0:2', duration: '4n'},{time: '1:0', duration: '4n'},{time: '1:1', duration: '8n'},{time: '1:1.5', duration: '8n'},{time: '1:2', duration: '4n'}],
 [{time: '0:0', duration: '8n'},{time: '0:0.5', duration: '8n'},{time: '0:1', duration: '8n'},{time: '0:1.5', duration: '8n'},{time: '0:2', duration: '8n'},{time: '0:2.5', duration: '8n'},{time: '0:3', duration: '8n'},{time: '0:3.5', duration: '8n'},{time: '1:0', duration: '8n'},{time: '1:0.5', duration: '8n'},{time: '1:1', duration: '8n'},{time: '1:1.5', duration: '8n'},{time: '1:2', duration: '8n'},{time: '1:2.5', duration: '8n'},{time: '1:3', duration: '8n'},{time: '1:3.5', duration: '8n'}],
 [{time: '0:0', duration: '3n'},{time: '0:1.5', duration: '8n'},{time: '0:2', duration: '4n'},{time: '1:0', duration: '3n'},{time: '1:1.5', duration: '8n'},{time: '1:2', duration: '4n'}],
-[{time: '0:0', duration: '3n'},{time: '0:1.5', duration: '8n'},{time: '0:2', duration: '4n'},{time: '0:3', duration: '4n'},{time: '1:1', duration: '4n'},{time: '1:2', duration: '4n'}],
+[{time: '0:0', duration: '3n'},{time: '0:1.5', duration: '3n'},{time: '0:3', duration: '4n'},{time: '1:1', duration: '4n'},{time: '1:2', duration: '4n'}],
 [{time: '0:0', duration: '4n'}],
 [{note:'A4', time: '0:0', duration: '4n'},{note:'A4', time: '0:1', duration: '4n'},{note:'A4', time: '0:2', duration: '4n'},{note:'A5', time: '0:3', duration: '4n'}]
 ];
@@ -47,6 +47,7 @@ Tone.Transport.start();
 
 document.getElementById('rhythm-1').addEventListener('click', function() {
 changeTempo();
+statusAble = setInterval(btnAble , 0); 
 const synth = new Tone.Synth().toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
 const melody = new Tone.Part(setPlay, rhythmLists[1]).start();
@@ -55,6 +56,7 @@ Tone.Transport.start();
 
 document.getElementById('rhythm-2').addEventListener('click', function() {
 changeTempo();
+statusAble = setInterval(btnAble , 0); 
 const synth = new Tone.Synth().toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
 const melody = new Tone.Part(setPlay, rhythmLists[2]).start();
@@ -63,6 +65,7 @@ Tone.Transport.start();
 
 document.getElementById('rhythm-3').addEventListener('click', function() {
 changeTempo();
+statusAble = setInterval(btnAble , 0); 
 const synth = new Tone.Synth().toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
 const melody = new Tone.Part(setPlay, rhythmLists[3]).start();
@@ -71,6 +74,7 @@ Tone.Transport.start();
 
 document.getElementById('rhythm-4').addEventListener('click', function() {
 changeTempo();
+statusAble = setInterval(btnAble , 0); 
 const synth = new Tone.Synth().toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
 const melody = new Tone.Part(setPlay, rhythmLists[4]).start();
@@ -79,6 +83,7 @@ Tone.Transport.start();
 
 document.getElementById('rhythm-5').addEventListener('click', function() {
 changeTempo();
+statusAble = setInterval(btnAble , 0); 
 const synth = new Tone.Synth().toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time);}
 const melody = new Tone.Part(setPlay, rhythmLists[5]).start();
@@ -96,9 +101,26 @@ function btnDisable(){
   clearInterval(statusAble);
   Refresh();
   }
+function changeButtonStatus(){
+  statusDis  = setInterval(btnDisable , 0); 
+  switch (tempo_category.value){
+  case 'tempo75':
+  statusAble = setInterval(btnAble , 75000); 
+      break;
+  case 'tempo95':
+  statusAble = setInterval(btnAble , 60000); 
+      break;
+  case 'tempo115':
+  statusAble = setInterval(btnAble , 50000); 
+      break;
+  default:  
+  statusAble = setInterval(btnAble , 60000); 
+}  
+}
 function playMode(){
 changeTempo();
 changeRhythm();
+changeButtonStatus();
 metronome();
 Tone.Transport.start();
 switch (play_mode.value){
@@ -130,23 +152,18 @@ switch (play_mode.value){
 }
 
 function changeTempo(){
-  statusDis  = setInterval(btnDisable , 0); 
   switch (tempo_category.value){
   case 'tempo75':
   Tone.Transport.bpm.value = 75;
-  statusAble = setInterval(btnAble , 75000); 
       break;
   case 'tempo95':
   Tone.Transport.bpm.value = 95;
-  statusAble = setInterval(btnAble , 60000); 
       break;
   case 'tempo115':
   Tone.Transport.bpm.value = 115;
-  statusAble = setInterval(btnAble , 50000); 
       break;
   default:  
   Tone.Transport.bpm.value = 95;
-  statusAble = setInterval(btnAble , 60000); 
 }  
 }
 
