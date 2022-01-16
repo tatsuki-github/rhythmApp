@@ -262,7 +262,7 @@ for(i = 11; i < rhythmCategory.length/4*2; i++){
 rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'lightskyblue':rhythmCategory[i].style.backgroundColor = 'white';
 }
 for(i = 22; i < rhythmCategory.length/4*3; i++){
-rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'yellow':rhythmCategory[i].style.backgroundColor = 'white';
+rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = '#ffbb00':rhythmCategory[i].style.backgroundColor = 'white';
 }
 for(i = 33; i < rhythmCategory.length/4*4; i++){
 rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'lightgreen':rhythmCategory[i].style.backgroundColor = 'white';
