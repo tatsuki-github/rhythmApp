@@ -1,5 +1,4 @@
-html,
-body {
+html {
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -10,7 +9,7 @@ body {
 }
 
 p {
-  font-size: 12px;
+  font-size: 1.2vw;
   margin: 0;
 }
 
@@ -22,18 +21,18 @@ select {
 .rhythmImg {
   display: flex;
   width: 100vw;
-  margin: 16px 0 16px 0;
+  margin: 2vw 0;
 }
 
 .rhythmImg img {
   width: 28vw;
-  border: 0.1rem solid black;
+  border: 0.1vw solid black;
   margin: 0 auto 0 0;
 }
 
 .rhythmImg p {
-  margin: 0 0 8px auto;
-  font-size: 16px;
+  margin: 0 0 1vw auto;
+  font-size: 1.5vw;
 }
 
 .numbers {
@@ -55,19 +54,19 @@ select {
 }
 
 #first {
-  border: 0.2rem solid lightcoral;
+  border: 0.3vw solid lightcoral;
 }
 
 #second {
-  border: 0.2rem solid lightskyblue;
+  border: 0.3vw solid lightskyblue;
 }
 
 #third {
-  border: 0.2rem solid #ffbb00;
+  border: 0.3vw solid #ffbb00;
 }
 
 #forth {
-  border: 0.2rem solid lightgreen;
+  border: 0.3vw solid lightgreen;
 }
 
 #rhythm_0,
@@ -76,7 +75,7 @@ select {
 #rhythm_3 {
   width: 4vw;
   height: 3vw;
-  margin: 1px;
+  margin: 1vw;
 }
 
 #rhythmImg0,
@@ -89,7 +88,7 @@ select {
 .item select {
   width: 5.5vw;
   height: 5.5vw;
-  font-size: 16px;
+  font-size: 1.5vw;
 }
 
 .item {
@@ -107,34 +106,33 @@ select {
 
 #tempo_category {
   display: flex;
-  width: 8rem;
-  height: 2.8rem;
-  margin: 0 8rem 0 0;
+  width: 10vw;
+  height: 4vw;
+  margin: 1vw 10vw 0 0;
   background-color: #eee8aa;
 }
 
 .buttons {
-  width: 64%;
+  width: 64vw;
   display: flex;
   margin: 1rem auto 0 auto;
   justify-content: space-between;
 }
 
 button {
-  width: 5rem;
-  height: 2.5rem;
-  border-radius: 16px;
+  width: 8vw;
+  height: 4vw;
+  border-radius: 1.5vw;
   border: none;
   color: black;
   font-weight: bold;
-  font-size: 12px;
-  margin: 0.2rem 0.2rem 0 0;
+  font-size: 1vw;
+  margin: 1vw 1vw 0 0;
 }
 
 #play_mode {
-  width: 8rem;
-  height: 2.8rem;
-  margin: 0.2rem 0.5rem 0 0;
+  width: 12vw;
+  margin: 1vw 1vw 0 0;
   background-color: #eedab9;
 }
 
@@ -143,7 +141,7 @@ button {
   display: inline-block;
   position: relative;
   color: #000;
-  font-size: 2rem;
+  font-size: 3vw;
 }
 
 #play::before {
@@ -153,7 +151,7 @@ button {
   transform: translateY(-50%);
   width: 0;
   height: 0;
-  border: 0.3em solid transparent;
+  border: 1vw solid transparent;
   border-left: 0.5em solid currentColor;
   box-sizing: border-box;
   content: "";
@@ -164,7 +162,7 @@ button {
   display: inline-block;
   position: relative;
   color: #000;
-  font-size: 2rem;
+  font-size: 3vw;
 }
 
 #stop::before,
