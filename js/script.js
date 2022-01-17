@@ -283,7 +283,7 @@ const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
 const drum = 'https://tatsuki-github.github.io/rhythmApp/audio/drum.mp3';
 function melody2(){
 const synth = new Tone.Sampler({E4:drum}).toDestination();
-function setPlay(time, note) {synth.triggerAttackRelease('G4', note.duration, time, 1.2);}
+function setPlay(time, note) {synth.triggerAttackRelease('G4', note.duration, time, 1);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
   rhythmCategory[i+11].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[1]).start(`${2*i+1}m`):false
@@ -294,7 +294,7 @@ const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
 const clave = 'https://tatsuki-github.github.io/rhythmApp/audio/clave.wav';
 function melody3(){
 const synth = new Tone.Sampler({E4:clave}).toDestination();
-function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time, 2.5);}
+function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time, 3);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
   rhythmCategory[i+22].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[2]).start(`${2*i+1}m`):false
