@@ -10,7 +10,7 @@ document.getElementById('stop').addEventListener('click', function() {
   btnAble();
 }, false);
   const tempo_category = document.getElementById('tempo_category');
-  tempo_category.onchange = Refresh;
+  tempo_category.onchange = refresh;
   const rhythmCategory = [rhythm0,rhythm1,rhythm2,rhythm3,rhythm4,rhythm5,rhythm6,rhythm7,rhythm8,rhythm9,rhythm10,rhythm11,rhythm12,rhythm13,rhythm14,rhythm15,rhythm16,rhythm17,rhythm18,rhythm19,rhythm20,rhythm21,rhythm22,rhythm23,rhythm24,rhythm25,rhythm26,rhythm27,rhythm28,rhythm29,rhythm30,rhythm31,rhythm32,rhythm33,rhythm34,rhythm35,rhythm36,rhythm37,rhythm38,rhythm39,rhythm40,rhythm41,rhythm42,rhythm43];
   const selectRhythmCategory = [rhythm_0,rhythm_1,rhythm_2,rhythm_3];
   rhythm_0.onchange = changeRhythm;
