@@ -279,8 +279,9 @@ for(i = 0; i < melodies.length; i++){
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
 }
 
+const drum = 'https://tatsuki-github.github.io/rhythmApp/audio/drum.mp3';
 function melody2(){
-const synth = new Tone.Synth().toDestination();
+const synth = new Tone.Sampler({E4:drum}).toDestination();
 function setPlay(time, note) {synth.triggerAttackRelease('G4', note.duration, time, 2.5);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
