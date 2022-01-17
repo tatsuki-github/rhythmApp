@@ -272,7 +272,7 @@ rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'lig
 const woodblock = 'https://tatsuki-github.github.io/rhythmApp/audio/woodblock.mp3';
 function melody1(){
 const synth = new Tone.Sampler({E4:woodblock}).toDestination();
-function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time, 2.5);}
+function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time, 3);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
   rhythmCategory[i].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[0]).start(`${2*i+1}m`):false
