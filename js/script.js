@@ -6,7 +6,7 @@ document.getElementById('play').addEventListener('click', function() {
   playMode();
 }, false);
 document.getElementById('stop').addEventListener('click', function() {
-  Refresh();
+  refresh();
   btnAble();
 }, false);
   const tempo_category = document.getElementById('tempo_category');
@@ -18,10 +18,10 @@ document.getElementById('stop').addEventListener('click', function() {
   rhythm_2.onchange = changeRhythm;
   rhythm_3.onchange = changeRhythm;
   const play_mode = document.getElementById('play_mode');
-  play_mode.onchange = Refresh;
+  play_mode.onchange = refresh;
   play_mode.onchange = changeDisplay;
 
-function Refresh(){
+function refresh(){
 Tone.Transport.stop();
 Tone.Transport.cancel();
 }
@@ -94,7 +94,7 @@ function btnDisable(){
   document.getElementById('play').disabled = false;
   document.getElementById('play').style.backgroundColor = '#ff7e00';
   clearInterval(statusAble);
-  Refresh();
+  refresh();
   }
 function changeButtonStatus(){
   statusDis  = setInterval(btnDisable , 0); 

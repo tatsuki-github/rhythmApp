@@ -270,14 +270,12 @@
   </div>
 </div>
 <div class="buttons">
-  <div class="tempo_and_piano">
-    <select name="tempo_category" id="tempo_category">
+    <select id="tempo_category">
       <option value="tempo75">&#9833; = 75</option>
       <option value="tempo95" selected>&#9833; = 95</option>
       <option value="tempo115">&#9833; = 115</option>
     </select>
-  </div>
-  <select name="play_mode" id="play_mode">
+  <select id="play_mode">
     <option value="3personMode" selected>3人再生モード</option>
     <option value="4personMode">4人再生モード</option>
     <option value="1personMode1">１人目再生モード</option>
@@ -289,7 +287,6 @@
   <button id = "stop"></button>
 </div>
 <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
   document.write(
     '<link rel="stylesheet" href="css/style.css?' + new Date().getTime() + '">'
