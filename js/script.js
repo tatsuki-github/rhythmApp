@@ -33,8 +33,7 @@ const rhythmLists = [
 [{time: '0:0', duration: '8n'},{time: '0:0.5', duration: '8n'},{time: '0:1', duration: '8n'},{time: '0:1.5', duration: '8n'},{time: '0:2', duration: '8n'},{time: '0:2.5', duration: '8n'},{time: '0:3', duration: '8n'},{time: '0:3.5', duration: '8n'},{time: '1:0', duration: '8n'},{time: '1:0.5', duration: '8n'},{time: '1:1', duration: '8n'},{time: '1:1.5', duration: '8n'},{time: '1:2', duration: '8n'},{time: '1:2.5', duration: '8n'},{time: '1:3', duration: '8n'},{time: '1:3.5', duration: '8n'}],
 [{time: '0:0', duration: '3n'},{time: '0:1.5', duration: '8n'},{time: '0:2', duration: '4n'},{time: '1:0', duration: '3n'},{time: '1:1.5', duration: '8n'},{time: '1:2', duration: '4n'}],
 [{time: '0:0', duration: '3n'},{time: '0:1.5', duration: '3n'},{time: '0:3', duration: '4n'},{time: '1:1', duration: '4n'},{time: '1:2', duration: '4n'}],
-[{time: '0:0', duration: '4n'}],
-[{note:'A4', time: '0:0', duration: '4n'},{note:'A4', time: '0:1', duration: '4n'},{note:'A4', time: '0:2', duration: '4n'},{note:'A5', time: '0:3', duration: '4n'}]
+[{time: '0:0', duration: '4n'}]
 ];
 
 document.getElementById('rhythm-0').addEventListener('click', function() {
@@ -313,8 +312,22 @@ for(i = 0; i < melodies.length; i++){
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
 }
 
+const bpm75 = new Audio('audio/75bpm.mp3');
+const bpm95 = new Audio('audio/95bpm.mp3');
+const bpm115 = new Audio('audio/115bpm.mp3');
+
 function metronome(){
-  const synth = new Tone.Synth().toDestination();
-  function setPlay(time, note) {synth.triggerAttackRelease(note.note, note.duration, time);}
-  const metronome = new Tone.Part(setPlay, rhythmLists[7]).start();
-  }
+  switch (tempo_category.value){
+    case 'tempo75':
+      bpm75.play();
+        break;
+    case 'tempo95':
+      bpm95.play();
+        break;
+    case 'tempo115':
+      bpm115.play();
+        break;
+    default:  
+      bpm95.play();
+  }  
+}
