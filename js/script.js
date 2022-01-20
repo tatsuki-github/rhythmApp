@@ -1,3 +1,6 @@
+window.addEventListener('beforeunload', function(e) {
+  e.returnValue = '本当に更新しますか？';
+}, false);
 window.addEventListener("load", function(){
   colorChange();
   changeRhythm();
