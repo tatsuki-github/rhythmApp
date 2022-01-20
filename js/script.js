@@ -1,4 +1,4 @@
-window.addEventListener('beforeunload', (event) => {
+window.addEventListener('pagehide', (event) => {
   event.preventDefault();
   event.returnValue = '';
 });
