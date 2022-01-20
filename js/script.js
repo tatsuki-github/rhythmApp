@@ -1,7 +1,3 @@
-window.addEventListener('pagehide', (event) => {
-  event.preventDefault();
-  event.returnValue = '';
-});
 window.addEventListener("load", function(){
   colorChange();
   changeRhythm();
