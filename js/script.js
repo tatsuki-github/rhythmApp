@@ -119,31 +119,31 @@ changeButtonStatus();
 metronome();
 Tone.Transport.start();
 switch (play_mode.value){
-  case '3personMode':
-    melody1();
-    melody2();
-    melody3();
+    case '3personMode':
+      melody1();
+      melody2();
+      melody3();
       break;
-  case '4personMode':
-    melody1();
-    melody2();
-    melody3();
-    melody4();
+    case '4personMode':
+      melody1();
+      melody2();
+      melody3();
+      melody4();
       break;
-  case '1personMode1':
-    melody1();
+    case '1personMode1':
+      melody1();
       break;
-  case '1personMode2':
-    melody2();
+    case '1personMode2':
+      melody2();
       break;
-  case '1personMode3':
-    melody3();
+    case '1personMode3':
+      melody3();
       break;
-  case '1personMode4':
-    melody4();
+    case '1personMode4':
+      melody4();
       break;
-  default:
-}  
+    default:
+  }  
 }
 
 function changeTempo(){
