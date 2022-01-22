@@ -3,21 +3,21 @@ window.addEventListener("load", function(){
   changeRhythm();
 }, false)
 document.getElementById('play').addEventListener('click', function() {
-  playMode();
+  play();
 }, false);
 document.getElementById('stop').addEventListener('click', function() {
   refresh();
   btnAble();
 }, false);
   const tempo_category = document.getElementById('tempo_category');
-  tempo_category.onchange = refresh;
   const rhythmCategory = [rhythm0,rhythm1,rhythm2,rhythm3,rhythm4,rhythm5,rhythm6,rhythm7,rhythm8,rhythm9,rhythm10,rhythm11,rhythm12,rhythm13,rhythm14,rhythm15,rhythm16,rhythm17,rhythm18,rhythm19,rhythm20,rhythm21,rhythm22,rhythm23,rhythm24,rhythm25,rhythm26,rhythm27,rhythm28,rhythm29,rhythm30,rhythm31,rhythm32,rhythm33,rhythm34,rhythm35,rhythm36,rhythm37,rhythm38,rhythm39,rhythm40,rhythm41,rhythm42,rhythm43];
   const selectRhythmCategory = [rhythm_0,rhythm_1,rhythm_2,rhythm_3];
+  const play_mode = document.getElementById('play_mode');
+  tempo_category.onchange = refresh;
   rhythm_0.onchange = changeRhythm;
   rhythm_1.onchange = changeRhythm;
   rhythm_2.onchange = changeRhythm;
   rhythm_3.onchange = changeRhythm;
-  const play_mode = document.getElementById('play_mode');
   play_mode.onchange = refresh;
   play_mode.onchange = changeDisplay;
 
@@ -90,7 +90,7 @@ function btnDisable(){
   document.getElementById('play').style.backgroundColor = '#C0C0C0';
   clearInterval(statusDis);
   }
-  function btnAble(){  
+function btnAble(){  
   document.getElementById('play').disabled = false;
   document.getElementById('play').style.backgroundColor = '#ff7e00';
   clearInterval(statusAble);
@@ -112,7 +112,7 @@ function changeButtonStatus(){
   statusAble = setInterval(btnAble , 60000); 
 }  
 }
-function playMode(){
+function play(){
 changeTempo();
 changeRhythm();
 changeButtonStatus();
@@ -214,12 +214,12 @@ for(i = 0; i < rhythmCategory.length; i++){
 rhythmCategory[i] = document.getElementById(`rhythm${i}`);
 }
 
-for(i = 0; i < selectRhythmCategory.length; i++){
-selectRhythmCategory[i] = document.getElementById(`rhythm_${i}`);
-}
-
 for(i = 0; i < rhythmCategory.length; i++){
 rhythmCategory[i].onchange = colorChange;
+}
+
+for(i = 0; i < selectRhythmCategory.length; i++){
+selectRhythmCategory[i] = document.getElementById(`rhythm_${i}`);
 }
 
 function changeRhythm(){
