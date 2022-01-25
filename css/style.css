@@ -40,7 +40,7 @@ select {
 
 .numbers {
   display: flex;
-  margin: 6vw auto 0 26vw;
+  margin: 6vw auto 0 25vw;
 }
 
 #numberLast {
@@ -91,7 +91,7 @@ select {
 .item select {
   width: 5.5vw;
   height: 5.5vw;
-  font-size: 1.5vw;
+  font-size: 2vw;
 }
 
 .item {
