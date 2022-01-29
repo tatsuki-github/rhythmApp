@@ -13,10 +13,6 @@ p {
   margin: 0;
 }
 
-#first .item select {
-  font-size: 1.8vw;
-}
-
 select {
   color: #000;
   font-weight: bold;
@@ -96,6 +92,7 @@ select {
   width: 5.5vw;
   height: 5.5vw;
   font-size: 1.8vw;
+  font-family: "ＭＳ Ｐゴシック";
 }
 
 .item {
