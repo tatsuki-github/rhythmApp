@@ -294,7 +294,7 @@ const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
 const clave = 'https://tatsuki-github.github.io/rhythmApp/audio/clave.wav';
 function melody3(){
 const synth = new Tone.Sampler({E4:clave}).toDestination();
-function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time, 3);}
+function setPlay(time, note) {synth.triggerAttackRelease('E4', note.duration, time, 2.5);}
 const melodies = new Array(11); 
 for(i = 0; i < melodies.length; i++){
   rhythmCategory[i+22].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[2]).start(`${2*i+1}m`):false
