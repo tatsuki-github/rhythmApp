@@ -13,7 +13,7 @@ p {
   margin: 0;
 }
 
-#first select {
+#first .item select {
   font-size: 2vw;
 }
 
