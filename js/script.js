@@ -319,7 +319,6 @@ const bpm75 = new Tone.Player('https://tatsuki-github.github.io/rhythmApp/audio/
 const bpm95 = new Tone.Player('https://tatsuki-github.github.io/rhythmApp/audio/95bpm.mp3').toDestination();
 const bpm115 = new Tone.Player('https://tatsuki-github.github.io/rhythmApp/audio/115bpm.mp3').toDestination();
 function metronome(){
-  //Tone.loaded().then(() => {
     switch (tempo_category.value){
       case 'tempo75':
         bpm75.autostart = true;
@@ -333,6 +332,5 @@ function metronome(){
         bpm95.autostart = true;
         bpm95.start();
     }  
-  //});
 }
 
