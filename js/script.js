@@ -335,6 +335,5 @@ function metronome(){
       bpm95.start();
     }  
   });
-  Tone.Transport.start();
 }
 
