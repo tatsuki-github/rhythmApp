@@ -321,15 +321,19 @@ function metronome(){
   Tone.loaded().then(() => {
     switch (tempo_category.value){
       case 'tempo75':
+        bpm75.autostart = true;
         bpm75.start();
           break;
       case 'tempo95':
+        bpm95.autostart = true;
         bpm95.start();
           break;
       case 'tempo115':
+        bpm115.autostart = true;
         bpm115.start();
           break;
       default:  
+      bpm95.autostart = true;
       bpm95.start();
     }  
   });
