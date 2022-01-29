@@ -13,6 +13,10 @@ p {
   margin: 0;
 }
 
+#first select {
+  font-size: 2vw;
+}
+
 select {
   color: #000;
   font-weight: bold;

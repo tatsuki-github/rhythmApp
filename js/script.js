@@ -117,6 +117,7 @@ changeTempo();
 changeRhythm();
 changeButtonStatus();
 metronome();
+Tone.Transport.start();
 switch (play_mode.value){
     case '3personMode':
       melody1();
@@ -277,7 +278,6 @@ for(i = 0; i < melodies.length; i++){
   rhythmCategory[i].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[0]).start(`${2*i+1}m`):false
 }
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
-Tone.Transport.start();
 }
 
 const drum = 'https://tatsuki-github.github.io/rhythmApp/audio/drum.mp3';
@@ -289,7 +289,6 @@ for(i = 0; i < melodies.length; i++){
   rhythmCategory[i+11].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[1]).start(`${2*i+1}m`):false
 }
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
-Tone.Transport.start();
 }
 
 const clave = 'https://tatsuki-github.github.io/rhythmApp/audio/clave.wav';
@@ -301,7 +300,6 @@ for(i = 0; i < melodies.length; i++){
   rhythmCategory[i+22].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[2]).start(`${2*i+1}m`):false
 }
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
-Tone.Transport.start();
 }
 
 const tambourine  = 'https://tatsuki-github.github.io/rhythmApp/audio/tambourine.mp3';
@@ -313,7 +311,6 @@ for(i = 0; i < melodies.length; i++){
   rhythmCategory[i+33].value == 'on' ? melodies[i] = new Tone.Part(setPlay, melodyList[3]).start(`${2*i+1}m`):false
 }
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
-Tone.Transport.start();
 }
 
 function metronome(){
@@ -335,6 +332,5 @@ function metronome(){
       bpm95.start();
     }  
   });
-  Tone.Transport.start();
 }
 
