@@ -316,11 +316,12 @@ const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
 Tone.Transport.start();
 }
 
-const bpm75 = new Tone.Player('https://tatsuki-github.github.io/rhythmApp/audio/75bpm.mp3').toDestination();
-const bpm95 = new Tone.Player('https://tatsuki-github.github.io/rhythmApp/audio/95bpm.mp3').toDestination();
-const bpm115 = new Tone.Player('https://tatsuki-github.github.io/rhythmApp/audio/115bpm.mp3').toDestination();
+
 function metronome(){
-  Tone.loaded().then(() => {
+  const bpm75 = new Tone.Player('https://tatsuki-github.github.io/rhythmApp/audio/75bpm.mp3').toDestination();
+  const bpm95 = new Tone.Player('https://tatsuki-github.github.io/rhythmApp/audio/95bpm.mp3').toDestination();
+  const bpm115 = new Tone.Player('https://tatsuki-github.github.io/rhythmApp/audio/115bpm.mp3').toDestination();
+  //Tone.loaded().then(() => {
     switch (tempo_category.value){
       case 'tempo75':
         bpm75.start();
@@ -334,6 +335,6 @@ function metronome(){
       default:  
       bpm95.start();
     }  
-  });
+  //});
 }
 
