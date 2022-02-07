@@ -207,7 +207,6 @@ document.getElementById('forth').style.visibility = 'hidden';
 
 allDisplayVisible();
 document.getElementById('forth').style.visibility = 'hidden';
-
 const melodyList = [];
 
 for(i = 0; i < rhythmCategory.length; i++){
