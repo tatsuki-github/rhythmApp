@@ -162,6 +162,22 @@ function changeTempo(){
 }  
 }
 
+function allDisplayVisible(){
+  document.getElementById('first').style.visibility = 'visible';
+  document.getElementById('second').style.visibility = 'visible';
+  document.getElementById('third').style.visibility = 'visible';
+  document.getElementById('forth').style.visibility = 'visible';
+  }
+  
+  function allDisplayHidden(){
+  document.getElementById('first').style.visibility = 'hidden';
+  document.getElementById('second').style.visibility = 'hidden';
+  document.getElementById('third').style.visibility = 'hidden';
+  document.getElementById('forth').style.visibility = 'hidden';
+  }
+  
+allDisplayVisible();
+  
 function changeDisplay(){
 switch (play_mode.value){
   case '3personMode':
@@ -191,21 +207,7 @@ switch (play_mode.value){
 }  
 }
 
-function allDisplayVisible(){
-document.getElementById('first').style.visibility = 'visible';
-document.getElementById('second').style.visibility = 'visible';
-document.getElementById('third').style.visibility = 'visible';
-document.getElementById('forth').style.visibility = 'visible';
-}
 
-function allDisplayHidden(){
-document.getElementById('first').style.visibility = 'hidden';
-document.getElementById('second').style.visibility = 'hidden';
-document.getElementById('third').style.visibility = 'hidden';
-document.getElementById('forth').style.visibility = 'hidden';
-}
-
-allDisplayVisible();
 document.getElementById('forth').style.visibility = 'hidden';
 const melodyList = [];
 
