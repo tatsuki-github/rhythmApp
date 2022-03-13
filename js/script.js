@@ -2,9 +2,73 @@ window.addEventListener("load", function(){
   colorChange();
   changeRhythm();
 }, false)
+
+//再生ボタン
 document.getElementById('play').addEventListener('click', function() {
   play();
 }, false);
+function btnDisable(){ 
+  document.getElementById('play').disabled = true;
+  document.getElementById('play').style.backgroundColor = '#C0C0C0';
+  clearInterval(statusDis);
+  }
+function btnAble(){  
+  document.getElementById('play').disabled = false;
+  document.getElementById('play').style.backgroundColor = '#ff7e00';
+  clearInterval(statusAble);
+  refresh();
+  }
+function changeButtonStatus(){
+  statusDis  = setInterval(btnDisable , 0); 
+  switch (tempo_category.value){
+  case 'tempo75':
+  statusAble = setInterval(btnAble , 75000); 
+      break;
+  case 'tempo95':
+  statusAble = setInterval(btnAble , 60000); 
+      break;
+  case 'tempo115':
+  statusAble = setInterval(btnAble , 50000); 
+      break;
+  default:  
+  statusAble = setInterval(btnAble , 60000); 
+}  
+}
+function play(){
+changeTempo();
+changeRhythm();
+changeButtonStatus();
+metronome();
+Tone.Transport.start();
+switch (play_mode.value){
+    case '3personMode':
+      melody1();
+      melody2();
+      melody3();
+      break;
+    case '4personMode':
+      melody1();
+      melody2();
+      melody3();
+      melody4();
+      break;
+    case '1personMode1':
+      melody1();
+      break;
+    case '1personMode2':
+      melody2();
+      break;
+    case '1personMode3':
+      melody3();
+      break;
+    case '1personMode4':
+      melody4();
+      break;
+    default:
+  }  
+}
+
+//停止ボタン
 document.getElementById('stop').addEventListener('click', function() {
   refresh();
   btnAble();
@@ -85,66 +149,6 @@ const melody = new Tone.Part(setPlay, rhythmLists[5]).start();
 Tone.Transport.start();
 }, false);
 
-function btnDisable(){ 
-  document.getElementById('play').disabled = true;
-  document.getElementById('play').style.backgroundColor = '#C0C0C0';
-  clearInterval(statusDis);
-  }
-function btnAble(){  
-  document.getElementById('play').disabled = false;
-  document.getElementById('play').style.backgroundColor = '#ff7e00';
-  clearInterval(statusAble);
-  refresh();
-  }
-function changeButtonStatus(){
-  statusDis  = setInterval(btnDisable , 0); 
-  switch (tempo_category.value){
-  case 'tempo75':
-  statusAble = setInterval(btnAble , 75000); 
-      break;
-  case 'tempo95':
-  statusAble = setInterval(btnAble , 60000); 
-      break;
-  case 'tempo115':
-  statusAble = setInterval(btnAble , 50000); 
-      break;
-  default:  
-  statusAble = setInterval(btnAble , 60000); 
-}  
-}
-function play(){
-changeTempo();
-changeRhythm();
-changeButtonStatus();
-metronome();
-Tone.Transport.start();
-switch (play_mode.value){
-    case '3personMode':
-      melody1();
-      melody2();
-      melody3();
-      break;
-    case '4personMode':
-      melody1();
-      melody2();
-      melody3();
-      melody4();
-      break;
-    case '1personMode1':
-      melody1();
-      break;
-    case '1personMode2':
-      melody2();
-      break;
-    case '1personMode3':
-      melody3();
-      break;
-    case '1personMode4':
-      melody4();
-      break;
-    default:
-  }  
-}
 
 function changeTempo(){
   switch (tempo_category.value){
@@ -175,7 +179,7 @@ function allDisplayVisible(){
   document.getElementById('third').style.visibility = 'hidden';
   document.getElementById('forth').style.visibility = 'hidden';
   }
-  
+
 allDisplayVisible();
   
 function changeDisplay(){
