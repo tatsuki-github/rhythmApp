@@ -18,6 +18,7 @@ function btnAble(){
   clearInterval(statusAble);
   refresh();
   }
+
 function changeButtonStatus(){
   statusDis  = setInterval(btnDisable , 0); 
   switch (tempo_category.value){
@@ -34,6 +35,8 @@ function changeButtonStatus(){
   statusAble = setInterval(btnAble , 60000); 
 }  
 }
+
+
 function play(){
 changeTempo();
 changeRhythm();
@@ -172,6 +175,8 @@ function allDisplayVisible(){
   document.getElementById('third').style.visibility = 'visible';
   document.getElementById('forth').style.visibility = 'visible';
   }
+
+  allDisplayVisible();
   
   function allDisplayHidden(){
   document.getElementById('first').style.visibility = 'hidden';
@@ -180,7 +185,7 @@ function allDisplayVisible(){
   document.getElementById('forth').style.visibility = 'hidden';
   }
 
-allDisplayVisible();
+
   
 function changeDisplay(){
 switch (play_mode.value){
@@ -274,6 +279,7 @@ rhythmCategory[i].value == 'on' ? rhythmCategory[i].style.backgroundColor = 'lig
 }
 }
 
+//ウッドブロック
 const woodblock = 'https://tatsuki-github.github.io/rhythmApp/audio/woodblock.mp3';
 function melody1(){
 const synth = new Tone.Sampler({E4:woodblock}).toDestination();
@@ -285,6 +291,7 @@ for(i = 0; i < melodies.length; i++){
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
 }
 
+//太鼓
 const drum = 'https://tatsuki-github.github.io/rhythmApp/audio/drum.mp3';
 function melody2(){
 const synth = new Tone.Sampler({E4:drum}).toDestination();
@@ -296,6 +303,7 @@ for(i = 0; i < melodies.length; i++){
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
 }
 
+//クラベス
 const clave = 'https://tatsuki-github.github.io/rhythmApp/audio/clave.wav';
 function melody3(){
 const synth = new Tone.Sampler({E4:clave}).toDestination();
@@ -307,6 +315,7 @@ for(i = 0; i < melodies.length; i++){
 const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
 }
 
+//タンバリン
 const tambourine  = 'https://tatsuki-github.github.io/rhythmApp/audio/tambourine.mp3';
 function melody4(){
 const synth = new Tone.Sampler({E4:tambourine}).toDestination();
@@ -319,7 +328,7 @@ const lastRhythm = new Tone.Part(setPlay, rhythmLists[6]).start('23m');
 }
 
 
-
+//メトロノーム
 const bpm75 = new Tone.Player('https://tatsuki-github.github.io/rhythmApp/audio/75bpm.mp3').toDestination();
 const bpm95 = new Tone.Player('https://tatsuki-github.github.io/rhythmApp/audio/95bpm.mp3').toDestination();
 const bpm115 = new Tone.Player('https://tatsuki-github.github.io/rhythmApp/audio/115bpm.mp3').toDestination();
